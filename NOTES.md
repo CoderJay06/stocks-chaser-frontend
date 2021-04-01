@@ -11,6 +11,8 @@
       user form endpoints: /signup /login
 
    3. What React component(s) will be rendered?
+         StockSearchForm
+            ->Stock
          StocksContainer 
             ->Stocks
             -->Stock
