@@ -2,7 +2,7 @@
 
    1. What path will be visible in the URL bar?
       /stocks
-      
+
    2. What API endpoints are involved?
       stocks endpoints: /stocks /stocks/:id 
       portfolio endpoints: /portfolios/:id portfolios/:id/stocks 
@@ -11,6 +11,10 @@
       user form endpoints: /signup /login
 
    3. What React component(s) will be rendered?
+         StocksContainer 
+            ->Stocks
+            -->Stock
+
          Q1. What state do we need for this component?
          Q2. What props do we need for this component?
          Q3. Do we need componentDidMount (or useEffect) here? If so, what is it that
