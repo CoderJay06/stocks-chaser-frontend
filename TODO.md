@@ -20,7 +20,12 @@
            by passing down props to Stock
            component
          
-
+      [ ] Build Stock Component
+         - is stateless and functional
+         - recieves props from parent
+         - renders all stock attributes to the
+           page (tickerSymbol, name, pricePerShare)
+         - has button for viewing more details of stock
 
 
 

@@ -77,18 +77,18 @@
 
       stateless & presentational: 
          ## Stocks (or StocksIndex)
-            Q1 A: 
-            Q2 A: 
-            Q3 A:
-            Q4 A:
-            Q5 A:
+            Q1 A: Stateless
+            Q2 A: Recieves stocks props  
+            Q3 A: Doesn't need a componentDidMount 
+            Q4 A: No event handlers 
+            Q5 A: When rendered, passes down props to Stock component
 
          ## Stock
-            Q1 A: 
-            Q2 A: 
-            Q3 A:
-            Q4 A:
-            Q5 A:
+            Q1 A: Stateless
+            Q2 A: Recieves props for each stock (ticker, name, price_per_share)
+            Q3 A: No componentDidMount
+            Q4 A: Event handlers: onClick handler for viewing a specific stock
+            Q5 A: Displays each stock and its details on render
 
          ## UserProfile
             Q1 A: 
