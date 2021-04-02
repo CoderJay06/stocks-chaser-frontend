@@ -1,6 +1,7 @@
 # TODO
    [x] Test out fetching routes
    [ ] Start to implement Redux from the beginning ?? 
+   [ ] Install and implement react router into app
 
    ## Containers TODO
       [x] Build out StocksContainer

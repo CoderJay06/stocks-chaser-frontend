@@ -7,12 +7,14 @@ export const Stock = ({tickerSymbol, name, pricePerShare}) => {
    }
 
    return (
-      <div className="stock-container">
+      <div >
          <h4>Stock</h4>
          <p>Ticker: {tickerSymbol}</p>
          <p>Name: {name}</p>
          <p>Share Price: ${pricePerShare}</p>
-         <button onClick={handleOnClick}>View</button>
+         <button onClick={handleOnClick}
+                 className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-100 transition-all duration-200"
+         >View</button>
          <br />
       </div>
    )

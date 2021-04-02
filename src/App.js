@@ -1,26 +1,55 @@
 import React, { Component } from 'react';
 import StocksContainer from './containers/StocksContainer';
+import {
+   BrowserRouter as Router,
+   Switch,
+   Route,
+   NavLink
+ } from "react-router-dom";
 
 class App extends Component {
-
-   // componentDidMount() {
-      // http://127.0.0.1:3000/api/v1/stocks
-   //    fetch('http://localhost:3000/api/v1/stocks', {
-   //       method: 'GET',
-   //       headers: {
-   //          'Content-Type': 'application/json',
-   //          'Accept': 'application/json'
-   //       }
-   //    })
-   //    .then(res => res.text())
-   //    .then(text => console.log(text))
-   // }
 
    render() {
       return (
          <div className="App">
-            App
-            <StocksContainer />
+            <Router>
+               <nav className="text-center bg-blue-500 text-black-100 p-4">
+                  <NavLink
+                     className="inline-block px-4 py-2"
+                     exact to="/stocks">
+                     Stocks
+                  </NavLink>
+                  <NavLink
+                     className="inline-block px-4 py-2"
+                     exact to="/signup">
+                     Signup
+                  </NavLink>
+                  <NavLink
+                     className="inline-block px-4 py-2"
+                     exact to="/login">
+                     Login
+                  </NavLink>
+                  <NavLink
+                     className="inline-block px-4 py-2"
+                     exact to="/">
+                     Home
+                  </NavLink>
+               </nav>
+               <Switch>
+                  <Route path="/stocks">
+                     <StocksContainer />
+                  </Route>   
+                  <Route path="/signup">
+                     {/* <Signup /> */}
+                  </Route>   
+                  <Route path="/login">
+                     {/* <Login /> */}
+                  </Route>  
+                  <Route exact path="/">
+                     {/* <Home /> */}
+                  </Route>            
+               </Switch>
+            </Router>
          </div>
        );
    }
