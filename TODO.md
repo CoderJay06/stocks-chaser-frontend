@@ -2,8 +2,8 @@
    [x] Test out fetching routes
    [ ] Start to implement Redux from the beginning ?? 
 
-   ## Components TODO
-      [ ] Build out StocksContainer
+   ## Containers TODO
+      [x] Build out StocksContainer
          - is a class component
          - must have state for stocks data { stocks: [...] }
          - uses componentDidMount on render 
@@ -11,3 +11,18 @@
            sets state
          - calls Stocks component inside render 
          - passes state as props to Stocks
+
+   ## Components TODO
+      [x] Build Stocks Component
+         - is stateless and functional
+         - recieves props from parent
+         - renders stock data inside divs
+           by passing down props to Stock
+           component
+         
+
+
+
+
+
+
