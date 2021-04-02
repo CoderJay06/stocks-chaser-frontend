@@ -2,16 +2,20 @@ import React, { Component } from 'react';
 import { Stocks } from '../components/Stocks';
 
 class StocksContainer extends Component {
+   _isMounted = false; // temp fix to prevent unmounted component error
+
    state = {
       stocks: [],
       loading: true
    };
 
    setStocksState = stocksData => {
-      this.setState({
-         stocks: stocksData,
-         loading: false
-      });
+      if (this._isMounted) { 
+         this.setState({
+            stocks: stocksData,
+            loading: false
+         });
+      }
    }
 
    fetchStocksData = (stocksUrl, configObj) => {
@@ -23,6 +27,7 @@ class StocksContainer extends Component {
    }
 
    componentDidMount() {
+      this._isMounted = true;
       // fetch stocks from 'http://localhost:3000/api/v1/stocks'
       const stocksUrl = "http://localhost:3000/api/v1/stocks";
       const configStocksObj = {
@@ -34,6 +39,10 @@ class StocksContainer extends Component {
       };
 
       this.fetchStocksData(stocksUrl, configStocksObj);
+   }
+
+   componentWillUnmount() {
+      this._isMounted = false;
    }
 
    render() {
