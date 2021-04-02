@@ -55,11 +55,11 @@
             Q5 A:
       forms: 
          ## StockSearchForm
-            Q1 A: 
-            Q2 A: 
-            Q3 A:
-            Q4 A:
-            Q5 A:
+            Q1 A: state => for input value entered by user
+            Q2 A: no props needed yet
+            Q3 A: no componentDidMount
+            Q4 A: event handlers will be onSubmit, onChange
+            Q5 A: When rendered will display a search form for searching stocks
 
          ## SignupForm
             Q1 A: 

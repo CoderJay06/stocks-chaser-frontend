@@ -28,6 +28,11 @@
            page (tickerSymbol, name, pricePerShare)
          - has button for viewing more details of stock
 
+      [ ] Build StockSearchForm component
+         - will have state for user input
+         - renders a form with search box and submit
+         - renders component to show searched out stock
+           on submitting of form
 
 
 
