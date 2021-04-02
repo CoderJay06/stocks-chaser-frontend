@@ -15,7 +15,7 @@ export const Stocks = (props) => {
    });
 
    return (
-      <div>
+      <div className="max-w-6xl w-3/4 mx-auto mt-16 shadow-lg px-4 py-6">
          {console.log('Stocks component props: ', props)}
          <h3>Stocks</h3>
          {renderStocks}

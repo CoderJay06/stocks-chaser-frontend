@@ -11,35 +11,46 @@ class App extends Component {
 
    render() {
       return (
-         <Router>
-            <div className="App">
-               <nav className="text-center bg-blue-900 text-white-100 p-4">
+         <div className="App">
+            <Router>
+               <nav className="text-center bg-blue-500 text-black-100 p-4">
                   <NavLink
                      className="inline-block px-4 py-2"
-                     activeClassName="text-white-300"
                      exact to="/stocks">
                      Stocks
                   </NavLink>
                   <NavLink
                      className="inline-block px-4 py-2"
-                     activeClassName="text-white-300"
                      exact to="/signup">
                      Signup
                   </NavLink>
                   <NavLink
                      className="inline-block px-4 py-2"
-                     activeClassName="text-white-300"
                      exact to="/login">
                      Login
                   </NavLink>
+                  <NavLink
+                     className="inline-block px-4 py-2"
+                     exact to="/">
+                     Home
+                  </NavLink>
                </nav>
                <Switch>
-                  <Route exact path="/stocks">
+                  <Route path="/stocks">
                      <StocksContainer />
-                  </Route>
+                  </Route>   
+                  <Route path="/signup">
+                     {/* <Signup /> */}
+                  </Route>   
+                  <Route path="/login">
+                     {/* <Login /> */}
+                  </Route>  
+                  <Route exact path="/">
+                     {/* <Home /> */}
+                  </Route>            
                </Switch>
-            </div>
-         </Router>
+            </Router>
+         </div>
        );
    }
 
