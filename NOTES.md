@@ -4,34 +4,48 @@
       /stocks
 
    2. What API endpoints are involved?
-      stocks endpoints: /stocks /stocks/:id 
-      portfolio endpoints: /portfolios/:id portfolios/:id/stocks 
-                           /portfolios/:id/stocks/:id
-      users endpoints: /users/:id 
+      stocks endpoints: api/v1/stocks 
+                        api/v1/stocks/:id 
+
+      portfolio endpoints: api/v1/portfolios/:id 
+                           api/v1/portfolios/:id/stocks 
+
+      users endpoints: api/v1/users/:id 
+                       api/v1/users/:id/portfolios/:id
+
       user form endpoints: /signup /login
 
    3. What React component(s) will be rendered?
-         StockSearchForm
-            ->Stock
+
          StocksContainer 
             ->Stocks
             -->Stock
 
+         PortfolioContainer 
+            ->Portfolio
+
+         StockSearchForm
+            ->Stock (fetch stocks/:id)
+
+         SignupForm
+         LoginForm
+            ->UserProfile
+
          Q1. What state do we need for this component?
          Q2. What props do we need for this component?
          Q3. Do we need componentDidMount (or useEffect) here? If so, what is it that
-         should happen after the component renders?
+             should happen after the component renders?
          Q4. What event handlers are required? Will the listener(s) be attached in this
-         component or will the handler(s) be passed as props to child components?
+             component or will the handler(s) be passed as props to child components?
          Q5. What possible values for state and props will affect the rendered content?
 
       containers: 
          ## StocksContainer
-            Q1 A: 
-            Q2 A: 
-            Q3 A:
-            Q4 A:
-            Q5 A:
+            Q1 A: state => array of fetched stocks
+            Q2 A: props needed ?
+            Q3 A: componentDidMount can be used to fetch stocks data (use middleWare Redux thunk)
+            Q4 A: event handlers? TBD
+            Q5 A: When component is rendered stock data will be fetched and set as state
 
          ## PortfolioContainer
             Q1 A: 
