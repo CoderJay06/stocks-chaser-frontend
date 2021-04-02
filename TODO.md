@@ -13,7 +13,7 @@
          - passes state as props to Stocks
 
    ## Components TODO
-      [ ] Build Stocks Component
+      [x] Build Stocks Component
          - is stateless and functional
          - recieves props from parent
          - renders stock data inside divs

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Stock } from '../components/Stock'; 
 
-
 // stateless functional component for rendering Stocks
 export const Stocks = (props) => {
    const { stocks } = props;
