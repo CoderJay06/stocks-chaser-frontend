@@ -40,6 +40,12 @@
            sets it as search results state
          - renders component to show searched out stock
            on submitting of form
+
+      [ ] Build Navbar component
+         - is functional stateless component
+         - uses react router for routing to each page
+         - imports Signup, Login, StocksContainer, Homepage
+         - imports react-router-dom with necessary components 
          
 
 

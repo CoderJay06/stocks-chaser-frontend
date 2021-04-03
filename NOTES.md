@@ -105,10 +105,12 @@
             Q5 A:
 
          ## Navbar 
-            Q1 A: 
-            Q2 A: 
-            Q3 A:
-            Q4 A:
-            Q5 A:
+            Q1 A: stateless component
+            Q2 A: props not needed
+            Q3 A: no componentDidMount
+            Q4 A: no eventHandlers
+            Q5 A: Displays links uses React Router 
+                  to handle navbar links for forms, 
+                  containers, components
 
    
