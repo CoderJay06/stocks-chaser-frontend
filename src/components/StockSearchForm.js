@@ -57,7 +57,8 @@ export default class StockSearchForm extends Component {
                   value="Search" />
             </form>
             {console.log(this.state.searchResults)}
-            {this.state.searchResults ?
+            {console.log(this.state.searchResults.Symbol)}
+            {this.state.searchResults.Symbol ?
                <Stock key={this.state.searchResults.id} 
                       id={this.state.searchResults.id}
                       tickerSymbol={this.state.searchResults.Symbol}
