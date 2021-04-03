@@ -6,6 +6,7 @@
    ## Redux
       [x] install redux, react-redux dependinces
       [x] set up redux store
+      [ ] add connect for mapping state and dispatctch to props
 
       - Stocks
          what will our state look like ?
@@ -17,9 +18,21 @@
             }
 
          what type of actions will be dispatched?
+            - Loading status actions 
+            - Action for adding stocks data
+
          which reducers will care about the action?
+            - The stocksReducer
+   
          how willthey respond to that action?
+            - Will update state, loading status and return new state object
+              without mutating
+
          how will states shape be affected by the action?
+            - State will have a new loading status
+            - State will have stock data added to it
+
+         
 
    ## Containers TODO
       [x] Build out StocksContainer
