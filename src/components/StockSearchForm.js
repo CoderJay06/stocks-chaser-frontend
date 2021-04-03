@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Stock } from '../components/Stock';
 
 export default class StockSearchForm extends Component {
    _APIKEY = "DL6L2X8WNRCW16C";
@@ -55,7 +56,15 @@ export default class StockSearchForm extends Component {
                   className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-400 transition-all duration-200"
                   value="Search" />
             </form>
-            {console.log(this.state)}
+            {console.log(this.state.searchResults)}
+            {this.state.searchResults ?
+               <Stock key={this.state.searchResults.id} 
+                      id={this.state.searchResults.id}
+                      tickerSymbol={this.state.searchResults.Symbol}
+                      name={this.state.searchResults.Name}
+                      pricePerShare={this.state.searchResults['50DayMovingAverage']} />
+               : null 
+            }
          </div>
       )
    }
