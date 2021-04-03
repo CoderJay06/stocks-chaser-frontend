@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import StocksContainer from './containers/StocksContainer';
+import StockSearchForm from './components/StockSearchForm';
 import {
    BrowserRouter as Router,
    Switch,
@@ -21,6 +22,11 @@ class App extends Component {
                   </NavLink>
                   <NavLink
                      className="inline-block px-4 py-2"
+                     exact to="/search">
+                     Search a Stock
+                  </NavLink>
+                  <NavLink
+                     className="inline-block px-4 py-2"
                      exact to="/signup">
                      Signup
                   </NavLink>
@@ -38,7 +44,10 @@ class App extends Component {
                <Switch>
                   <Route path="/stocks">
                      <StocksContainer />
-                  </Route>   
+                  </Route> 
+                  <Route path="/search">
+                     <StockSearchForm />
+                  </Route>  
                   <Route path="/signup">
                      {/* <Signup /> */}
                   </Route>   

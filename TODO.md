@@ -13,6 +13,10 @@
          - calls Stocks component inside render 
          - passes state as props to Stocks
 
+      [ ] Build StocksSearchFormContainer
+         - renders StockSearchForm component and
+           passes state as props
+
    ## Components TODO
       [x] Build Stocks Component
          - is stateless and functional
@@ -28,11 +32,15 @@
            page (tickerSymbol, name, pricePerShare)
          - has button for viewing more details of stock
 
+
       [ ] Build StockSearchForm component
          - will have state for user input
          - renders a form with search box and submit
+         - querys alphavintage api to get stock data and
+           sets it as search results state
          - renders component to show searched out stock
            on submitting of form
+         
 
 
 
