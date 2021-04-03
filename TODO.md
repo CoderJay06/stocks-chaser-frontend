@@ -3,6 +3,10 @@
    [ ] Start to implement Redux from the beginning ?? 
    [ ] Install and implement react router into app
 
+   ## Redux
+      [ ] install redux, react-redux dependinces
+      [ ] set up redux store
+
    ## Containers TODO
       [x] Build out StocksContainer
          - is a class component
