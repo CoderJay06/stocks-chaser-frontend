@@ -4,8 +4,22 @@
    [ ] Install and implement react router into app
 
    ## Redux
-      [ ] install redux, react-redux dependinces
-      [ ] set up redux store
+      [x] install redux, react-redux dependinces
+      [x] set up redux store
+
+      - Stocks
+         what will our state look like ?
+            state = {
+               stocks: {
+                  loadingState: 'notLoading' || 'loading' || 'successfullyLoaded',
+                  all: []
+               }
+            }
+
+         what type of actions will be dispatched?
+         which reducers will care about the action?
+         how willthey respond to that action?
+         how will states shape be affected by the action?
 
    ## Containers TODO
       [x] Build out StocksContainer
