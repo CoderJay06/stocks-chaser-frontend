@@ -19,6 +19,7 @@ class StocksContainer extends Component {
    }
 
    fetchStocksData = (stocksUrl, configObj) => {
+      
       fetch(stocksUrl, configObj)
         .then(response => response.json())
         .then(stocksData => {
