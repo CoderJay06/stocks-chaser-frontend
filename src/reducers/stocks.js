@@ -18,9 +18,11 @@ export default function stocksReducer(state = initialState, action) {
             ...state, loadingState: "loading"
          }
       case ADD_STOCKS:
-         debugger
+         // return new state object with added stock data and new loading status
          return {
-
+            ...state, 
+            loadingState: "loaded",
+            all: action.payload
          }
       default: 
          break;

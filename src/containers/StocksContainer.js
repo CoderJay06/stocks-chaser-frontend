@@ -12,7 +12,7 @@ class StocksContainer extends Component {
    // };
 
    componentDidMount() {
-      this.props.fetchStocks()
+      this.props.dispatchFetchStocks()
    }
 
    // setStocksState = stocksData => {
@@ -58,11 +58,11 @@ class StocksContainer extends Component {
             {/* {console.log('current state: ', this.state)} */}
             StocksContainer
             {/* Render stocks when not loading */}
-            {/* <br />
-            {this.state.loading ?
+            <br />
+            {this.props.loadingState === "loading" ?
                "Loading stocks..."
                :
-               <Stocks stocks={this.state.stocks} />} */}
+               <Stocks stocks={this.props.stocks} />}
             {console.log('StocksContainer props: ', this.props.stocks)}
          </div>
       )
@@ -72,13 +72,14 @@ class StocksContainer extends Component {
 // map state and dispatch to props
 const mapStateToProps = state => {
    return {
-      stocks: state.stocks 
+      stocks: state.stocks.all,
+      loadingState: state.stocks.loadingState
    }
 }
 
 const mapDispatchToProps = dispatch => {
    return {
-      fetchStocks: () => dispatch(fetchStocks())
+      dispatchFetchStocks: () => dispatch(fetchStocks())
    }
 }
 
