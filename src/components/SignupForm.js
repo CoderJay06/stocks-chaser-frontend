@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { fetchUsers } from '../actions/fetchUsers';
 import { addUser } from '../actions/users';
 
 class SignupForm extends Component {
@@ -94,18 +93,4 @@ class SignupForm extends Component {
    }
 }
 
-const mapStateToProps = state => {
-   return {
-      users: state.users.all
-   }
-}
-
-const mapDispatchToProps = dispatch => {
-   return {
-      dispatchAddUser: user => dispatch(addUser(user)) 
-   }
-}
-
 export default connect(null, { addUser })(SignupForm);
-
-
