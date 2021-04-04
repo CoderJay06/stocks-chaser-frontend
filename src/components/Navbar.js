@@ -1,6 +1,7 @@
 import React from 'react';
 import StocksContainer from '../containers/StocksContainer';
 import StockSearchForm from '../components/StockSearchForm';
+import SignupForm from '../components/SignupForm';
 import {
    BrowserRouter as Router,
    Switch,
@@ -46,7 +47,7 @@ import {
                <StockSearchForm />
             </Route>  
             <Route path="/signup">
-               {/* <Signup /> */}
+               <SignupForm />
             </Route>   
             <Route path="/login">
                {/* <Login /> */}
