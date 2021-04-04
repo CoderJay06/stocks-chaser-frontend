@@ -6,7 +6,7 @@
    ## Redux
       [x] install redux, react-redux dependinces
       [x] set up redux store
-      [ ] add connect for mapping state and dispatctch to props
+      [x] add connect for mapping state and dispatctch to props
 
       - Stocks
          what will our state look like ?
