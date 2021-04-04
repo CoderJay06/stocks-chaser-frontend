@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+// import { fetchUsers } from '../actions/fetchUsers';
+import { addUser } from '../actions/users';
 
 class SignupForm extends Component {
    state = {
@@ -36,6 +39,9 @@ class SignupForm extends Component {
       fetch(usersUrl, configUsersObj)
          .then(response => response.json())
       
+      // update store with new user
+      this.props.addUser(this.state.user)
+      
       // reset user state
       this.setState({
          user: {
@@ -55,7 +61,7 @@ class SignupForm extends Component {
             <div>
                <form className="max-w-6xl w-3/4 mx-auto mt-16 shadow-lg px-4 py-6"
                      onSubmit={this.handleOnSubmit}>
-                  <label>Email</label>
+                  <label htmlFor="email">Email</label>
                   <input name="email" 
                         type="email" 
                         value={this.state.user.email}
@@ -63,7 +69,7 @@ class SignupForm extends Component {
                         placeholder="Enter your email"
                         className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-400 transition-all duration-200" />
                   <br />
-                  <label>Username</label>
+                  <label htmlFor="username">Username</label>
                   <input name="username" 
                         type="text" 
                         value={this.state.user.username}
@@ -71,7 +77,7 @@ class SignupForm extends Component {
                         placeholder="Enter a username"
                         className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-400 transition-all duration-200" />
                   <br />
-                  <label>Password</label>
+                  <label htmlFor="password">Password</label>
                   <input name="password" 
                         type="password" 
                         value={this.state.user.password}
@@ -88,4 +94,18 @@ class SignupForm extends Component {
    }
 }
 
-export default SignupForm;
+const mapStateToProps = state => {
+   return {
+      users: state.users.all
+   }
+}
+
+const mapDispatchToProps = dispatch => {
+   return {
+      dispatchAddUser: user => dispatch(addUser(user)) 
+   }
+}
+
+export default connect(null, { addUser })(SignupForm);
+
+
