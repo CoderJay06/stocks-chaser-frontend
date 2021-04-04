@@ -23,6 +23,13 @@ export default function stocksReducer(state = initialState, action) {
             loadingState: "loaded",
             all: action.payload
          }
+      case ERROR_LOADING_STOCKS:
+         // return error loading status
+         return {
+            ...state,
+            loadingState: "errorLoading",
+            all: action.payload
+         }
       default: 
          break;
    }

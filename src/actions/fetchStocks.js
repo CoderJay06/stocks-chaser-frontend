@@ -1,7 +1,8 @@
 // Action using redux thunk to fetch stocks
 import { 
    START_LOADING_STOCKS, 
-   SUCCESSFULLY_LOADED_STOCKS 
+   SUCCESSFULLY_LOADED_STOCKS,
+   ERROR_LOADING_STOCKS
 } from '../actions/stocks'; 
 
 export function fetchStocks() {
@@ -21,6 +22,12 @@ export function fetchStocks() {
          .then(stocksData => dispatch({
             type: SUCCESSFULLY_LOADED_STOCKS, 
             payload: stocksData
-         }));
+         }))
+         .catch(error => {
+            dispatch({
+               type: ERROR_LOADING_STOCKS,
+               payload: error 
+            })
+         });
    };
 }
