@@ -6,7 +6,8 @@ class SignupForm extends Component {
          email: '',
          username: '',
          password: ''
-      }
+      },
+      isSignedUp: false
    };
 
    handleOnChange = event => {
@@ -41,44 +42,48 @@ class SignupForm extends Component {
             email: '',
             username: '',
             password: ''
-         }
+         },
+         isSignedUp: true
       });
    }
 
    render() {
       return (
-         <div>
-            <form className="max-w-6xl w-3/4 mx-auto mt-16 shadow-lg px-4 py-6"
-                  onSubmit={this.handleOnSubmit}>
-               <label>Email</label>
-               <input name="email" 
-                      type="email" 
-                      value={this.state.user.email}
-                      onChange={this.handleOnChange} 
-                      placeholder="Enter your email"
-                      className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-400 transition-all duration-200" />
-               <br />
-               <label>Username</label>
-               <input name="username" 
-                      type="text" 
-                      value={this.state.user.username}
-                      onChange={this.handleOnChange} 
-                      placeholder="Enter a username"
-                      className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-400 transition-all duration-200" />
-               <br />
-               <label>Password</label>
-               <input name="password" 
-                      type="password" 
-                      value={this.state.user.password}
-                      onChange={this.handleOnChange} 
-                      placeholder="Enter a password"
-                      className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-400 transition-all duration-200" />
-               <br />
-               <input type="submit"
-                      value="Signup"
-                      className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-400 transition-all duration-200" />
-            </form>
-         </div>
+         this.state.isSignedUp ?
+            null // redirect to user profile if already signed up
+            :
+            <div>
+               <form className="max-w-6xl w-3/4 mx-auto mt-16 shadow-lg px-4 py-6"
+                     onSubmit={this.handleOnSubmit}>
+                  <label>Email</label>
+                  <input name="email" 
+                        type="email" 
+                        value={this.state.user.email}
+                        onChange={this.handleOnChange} 
+                        placeholder="Enter your email"
+                        className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-400 transition-all duration-200" />
+                  <br />
+                  <label>Username</label>
+                  <input name="username" 
+                        type="text" 
+                        value={this.state.user.username}
+                        onChange={this.handleOnChange} 
+                        placeholder="Enter a username"
+                        className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-400 transition-all duration-200" />
+                  <br />
+                  <label>Password</label>
+                  <input name="password" 
+                        type="password" 
+                        value={this.state.user.password}
+                        onChange={this.handleOnChange} 
+                        placeholder="Enter a password"
+                        className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-400 transition-all duration-200" />
+                  <br />
+                  <input type="submit"
+                        value="Signup"
+                        className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-400 transition-all duration-200" />
+               </form>
+            </div>
       )
    }
 }

@@ -9,6 +9,8 @@
       [x] install redux, react-redux dependinces
       [x] set up redux store
       [x] add connect for mapping state and dispatctch to props
+      [x] add stocks data to the store
+      [ ] add users data to the store
 
       - Stocks
          what will our state look like ?
@@ -85,5 +87,6 @@
          - has state for user input 
          - renders a form with inputs for 
            email, username , password , submit
+         - connect to store (state, dispatch)
          - dispatches action to add user
 
