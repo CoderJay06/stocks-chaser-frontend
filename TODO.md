@@ -80,7 +80,10 @@
          - imports Signup, Login, StocksContainer, Homepage
          - imports react-router-dom with necessary components 
          
-
-
-
+      [ ] Build SignupForm component
+         - is class component
+         - has state for user input 
+         - renders a form with inputs for 
+           email, username , password , submit
+         - dispatches action to add user
 
