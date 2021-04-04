@@ -53,19 +53,19 @@ class StocksContainer extends Component {
    // }
 
    render() {
-      return (
-         <div>
-            {/* {console.log('current state: ', this.state)} */}
-            StocksContainer
-            {/* Render stocks when not loading */}
-            <br />
-            {this.props.loadingState === "loading" ?
-               "Loading stocks..."
-               :
-               <Stocks stocks={this.props.stocks} />}
-            {console.log('StocksContainer props: ', this.props.stocks)}
-         </div>
-      )
+         if (this.props.loadingState === "notLoading") return null;
+
+         return (
+            <div>
+               StocksContainer
+               <br />
+               {this.props.loadingState === "loading" ?
+                  "Loading stocks..."
+                  :
+                  <Stocks stocks={this.props.stocks} />}
+               {console.log('StocksContainer props: ', this.props.stocks)}
+            </div>
+         )
    }
 };
 

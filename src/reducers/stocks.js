@@ -1,8 +1,7 @@
 import {
    START_LOADING_STOCKS,
    SUCCESSFULLY_LOADED_STOCKS,
-   ERROR_LOADING_STOCKS,
-   ADD_STOCKS
+   ERROR_LOADING_STOCKS
 } from '../actions/stocks';
 
 const initialState = {
@@ -17,8 +16,8 @@ export default function stocksReducer(state = initialState, action) {
          return {
             ...state, loadingState: "loading"
          }
-      case ADD_STOCKS:
-         // return new state object with added stock data and new loading status
+      case SUCCESSFULLY_LOADED_STOCKS:
+         // return new state object with loaded stock data and new loading status
          return {
             ...state, 
             loadingState: "loaded",

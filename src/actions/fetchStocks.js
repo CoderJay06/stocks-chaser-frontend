@@ -1,5 +1,8 @@
 // Action using redux thunk to fetch stocks
-import { START_LOADING_STOCKS } from '../actions/stocks'; 
+import { 
+   START_LOADING_STOCKS, 
+   SUCCESSFULLY_LOADED_STOCKS 
+} from '../actions/stocks'; 
 
 export function fetchStocks() {
    const url = "http://localhost:3000/api/v1/stocks"
@@ -15,6 +18,9 @@ export function fetchStocks() {
       dispatch({type: START_LOADING_STOCKS})
       fetch(url, configStocksObj)
          .then(response => response.json())
-         .then(stocksData => dispatch({type: "ADD_STOCKS", payload: stocksData}));
+         .then(stocksData => dispatch({
+            type: SUCCESSFULLY_LOADED_STOCKS, 
+            payload: stocksData
+         }));
    };
 }
