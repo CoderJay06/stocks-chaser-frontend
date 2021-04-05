@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { loginUser } from '../actions/users';
 
 class LoginForm extends Component {
    state = {
@@ -21,22 +23,32 @@ class LoginForm extends Component {
 
    handleOnSubmit = event => {
       event.preventDefault();
-      // TODO: fetch session to login user
-      // const loginUrl = "http://localhost:3000/sessions";
-      // const userConfigObj = {
-      //    method: "POST",
-      //    headers: {
-      //       "Content-Type": "application/json",
-      //       "Accept": "application/json"
-      //    },
-      //    body: JSON.stringify(this.state.user)
-      // }
+      // fetch session to login user
+      const loginUrl = "http://localhost:3000/sessions";
+      const userConfigObj = {
+         method: "POST",
+         headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+         },
+         body: JSON.stringify(this.state.user)
+      }
 
-      // // login user on submit
-      // fetch(loginUrl, userConfigObj)
-      //    .then(response => console.log(response))
+      // login user on submit
+      fetch(loginUrl, userConfigObj)
+         .then(response => response.json());
+      
+      // dispatch login with current state passed in
+      this.props.loginUser(this.state.user);
 
       // update state
+      this.setState({
+         user: {
+            username: '',
+            password: ''
+         },
+         isLoggedIn: true
+      });
    }
 
    render() {
@@ -74,4 +86,4 @@ class LoginForm extends Component {
    }
 }
 
-export default LoginForm;
+export default connect(null, { loginUser })(LoginForm);
