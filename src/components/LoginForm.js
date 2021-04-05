@@ -21,6 +21,22 @@ class LoginForm extends Component {
 
    handleOnSubmit = event => {
       event.preventDefault();
+      // TODO: fetch session to login user
+      // const loginUrl = "http://localhost:3000/sessions";
+      // const userConfigObj = {
+      //    method: "POST",
+      //    headers: {
+      //       "Content-Type": "application/json",
+      //       "Accept": "application/json"
+      //    },
+      //    body: JSON.stringify(this.state.user)
+      // }
+
+      // // login user on submit
+      // fetch(loginUrl, userConfigObj)
+      //    .then(response => console.log(response))
+
+      // update state
    }
 
    render() {
