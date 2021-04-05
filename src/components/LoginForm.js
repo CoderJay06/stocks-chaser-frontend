@@ -36,7 +36,10 @@ class LoginForm extends Component {
 
       // login user on submit
       fetch(loginUrl, userConfigObj)
-         .then(response => response.json());
+         .then(response => response.json())
+         .catch(loginError => {
+            alert(loginError.message)
+         });
       
       // dispatch login with current state passed in
       this.props.loginUser(this.state.user);
@@ -54,7 +57,8 @@ class LoginForm extends Component {
    render() {
       return (
          this.state.isLoggedIn ?
-            null // redirect to user profile if already logged in
+            <h1>Logged in as, {this.props.user.username}</h1>
+             // redirect to user profile if already logged in
             :
             <div>
                <form className="max-w-6xl w-3/4 mx-auto mt-16 shadow-lg px-4 py-6"
@@ -86,4 +90,12 @@ class LoginForm extends Component {
    }
 }
 
-export default connect(null, { loginUser })(LoginForm);
+const mapStateToProps = state => {
+   // debugger
+   return {
+      loginStatus: "loggedIn",
+      user: state.login.user
+   }
+}
+
+export default connect(mapStateToProps, { loginUser })(LoginForm);
