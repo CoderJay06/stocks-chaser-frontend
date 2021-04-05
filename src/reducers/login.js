@@ -12,7 +12,7 @@ export default function loginReducer(state = initialState, action) {
       case "LOGIN_USER":
          return {
             ...state,
-            loginStatus: true,
+            loginStatus: "loggedIn",
             user: action.payload
          }
       default: 

@@ -6,7 +6,7 @@ class UserProfileContainer extends Component {
    render() {
       return (
          <div>
-            <UserProfile username={this.props.user.username} />
+            <UserProfile username={this.props.currentUser.username} />
          </div>
       )
    }
@@ -16,7 +16,7 @@ const mapStateToProps = state => {
    // debugger
    return {
       loginStatus: "loggedIn",
-      user: state.login.user
+      currentUser: state.login.user
    }
 }
 

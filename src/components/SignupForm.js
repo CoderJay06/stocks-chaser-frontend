@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addUser } from '../actions/users';
+import { addUser, loginUser } from '../actions/users';
 
 class SignupForm extends Component {
    state = {
@@ -38,8 +38,17 @@ class SignupForm extends Component {
       fetch(usersUrl, configUsersObj)
          .then(response => response.json())
       
-      // update store with new user
+      // update store with new user 
       this.props.addUser(this.state.user)
+      
+      // login user with their username and password
+      const { username, password } = this.state.user;
+      const user = {
+         username: username,
+         password: password
+      };
+      console.log(user)
+      this.props.loginUser(user)
       
       // reset user state
       this.setState({
@@ -93,4 +102,4 @@ class SignupForm extends Component {
    }
 }
 
-export default connect(null, { addUser })(SignupForm);
+export default connect(null, { addUser, loginUser })(SignupForm);
