@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loginUser } from '../actions/users';
+import { BrowserRouter as Router,
+         Route,
+         Redirect } from 'react-router-dom'; 
 
 class LoginForm extends Component {
    state = {
@@ -58,7 +61,7 @@ class LoginForm extends Component {
       return (
          this.state.isLoggedIn ?
             <h1>Logged in as, {this.props.user.username}</h1>
-             // redirect to user profile if already logged in
+             // redirect to user profile if logged in
             :
             <div>
                <form className="max-w-6xl w-3/4 mx-auto mt-16 shadow-lg px-4 py-6"

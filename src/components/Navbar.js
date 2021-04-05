@@ -3,6 +3,7 @@ import StocksContainer from '../containers/StocksContainer';
 import StockSearchForm from '../components/StockSearchForm';
 import SignupForm from '../components/SignupForm';
 import LoginForm from '../components/LoginForm';
+import UserProfileContainer from '../containers/UserProfileContainer';
 import {
    BrowserRouter as Router,
    Switch,
@@ -36,6 +37,11 @@ import {
             </NavLink>
             <NavLink
                className="inline-block px-4 py-2"
+               exact to="/profile">
+               Profile
+            </NavLink>
+            <NavLink
+               className="inline-block px-4 py-2"
                exact to="/">
                Home
             </NavLink>
@@ -52,6 +58,9 @@ import {
             </Route>   
             <Route path="/login">
                <LoginForm />
+            </Route>  
+            <Route path="/profile">
+               <UserProfileContainer />
             </Route>  
             <Route exact path="/">
                {/* <Home /> */}
