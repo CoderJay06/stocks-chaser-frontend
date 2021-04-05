@@ -59,7 +59,7 @@ class LoginForm extends Component {
 
    render() {
       return (
-         this.state.isLoggedIn ?
+         this.props.status === "loggedIn" ?
             <h1>Logged in as, {this.props.user.username}</h1>
              // redirect to user profile if logged in
             :
@@ -96,7 +96,7 @@ class LoginForm extends Component {
 const mapStateToProps = state => {
    // debugger
    return {
-      loginStatus: "loggedIn",
+      status: state.login.status,
       user: state.login.user
    }
 }
