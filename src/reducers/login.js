@@ -15,6 +15,13 @@ export default function loginReducer(state = initialState, action) {
             status: "loggedIn",
             user: action.payload
          }
+      case "LOGOUT_USER":
+         debugger
+         return {
+            ...state,
+            status: "loggedOut",
+            user: action.payload
+         }
       default: 
          break;
    }
