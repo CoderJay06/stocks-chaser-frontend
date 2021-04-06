@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loginUser } from '../actions/users';
-import { BrowserRouter as Router,
-         Route,
-         Redirect } from 'react-router-dom'; 
+import { Redirect } from 'react-router-dom'; 
+import UserProfileContainer from '../containers/UserProfileContainer';
 
 class LoginForm extends Component {
    state = {
@@ -62,8 +61,10 @@ class LoginForm extends Component {
    render() {
       return (      
          this.props.status === "loggedIn" ?
-            <h1>Logged in as, {this.props.current.user.username}{console.log(this.props.current)}</h1>
-      
+            // redirect to user profile if already logged in
+            <Redirect to="/profile">
+               <UserProfileContainer />
+            </Redirect>
              // redirect to user profile if logged in
             :
             <div>

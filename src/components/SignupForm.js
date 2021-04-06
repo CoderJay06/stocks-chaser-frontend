@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addUser, loginUser } from '../actions/users';
+import { Redirect } from 'react-router-dom';
+import UserProfileContainer from '../containers/UserProfileContainer';
 
 class SignupForm extends Component {
    state = {
@@ -63,7 +65,10 @@ class SignupForm extends Component {
       return (
          
          this.props.status === "loggedIn" ?
-            null // redirect to user profile if already signed up
+            // redirect to user profile if already signed up
+            <Redirect to="/profile">
+               <UserProfileContainer />
+            </Redirect>
             :
             <div>
                <form className="max-w-6xl w-3/4 mx-auto mt-16 shadow-lg px-4 py-6"
