@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 import UserProfile from '../components/UserProfile';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 class UserProfileContainer extends Component {
    render() {
-      const isLoggedIn = this.props.status;
-      {console.log(this.props.current.user)}
       return (
          <div>
-            {isLoggedIn === "loggedIn" ? 
+            {this.props.status === "loggedIn" ? 
                <UserProfile username={this.props.current.user.username} />
                :
-               null
+               <Redirect to="/" /> // send to homepage if not logged in
             }
          </div>
       )
@@ -19,7 +18,6 @@ class UserProfileContainer extends Component {
 };
 
 const mapStateToProps = state => {
-   // debugger
    return {
       status: state.login.status,
       current: state.login.user
