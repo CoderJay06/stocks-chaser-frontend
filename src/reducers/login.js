@@ -1,6 +1,6 @@
 
 const initialState = {
-   loginStatus: 'notLoggedIn',
+   status: 'notLoggedIn',
    user: {
       username: '',
       password: '' 
@@ -12,7 +12,7 @@ export default function loginReducer(state = initialState, action) {
       case "LOGIN_USER":
          return {
             ...state,
-            loginStatus: true,
+            status: "loggedIn",
             user: action.payload
          }
       default: 

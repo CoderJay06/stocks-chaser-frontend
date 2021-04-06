@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { loginUser } from '../actions/users';
+import { Redirect } from 'react-router-dom'; 
+import UserProfileContainer from '../containers/UserProfileContainer';
 
 class LoginForm extends Component {
    state = {
       user: {
          username: '',
          password: ''
-      },
-      isLoggedIn: false
+      }
    };
 
    handleOnChange = event => {
@@ -37,28 +38,34 @@ class LoginForm extends Component {
       // login user on submit
       fetch(loginUrl, userConfigObj)
          .then(response => response.json())
+         .then(userData => {
+            userData.error ? 
+               alert(userData.error) : this.props.loginUser(userData)
+         })
          .catch(loginError => {
             alert(loginError.message)
          });
       
       // dispatch login with current state passed in
-      this.props.loginUser(this.state.user);
+      // this.props.loginUser(this.state.user);
 
       // update state
       this.setState({
          user: {
             username: '',
             password: ''
-         },
-         isLoggedIn: true
+         }
       });
    }
 
    render() {
-      return (
-         this.state.isLoggedIn ?
-            <h1>Logged in as, {this.props.user.username}</h1>
-             // redirect to user profile if already logged in
+      return (      
+         this.props.status === "loggedIn" ?
+            // redirect to user profile if already logged in
+            <Redirect to="/profile">
+               <UserProfileContainer />
+            </Redirect>
+             // redirect to user profile if logged in
             :
             <div>
                <form className="max-w-6xl w-3/4 mx-auto mt-16 shadow-lg px-4 py-6"
@@ -93,8 +100,8 @@ class LoginForm extends Component {
 const mapStateToProps = state => {
    // debugger
    return {
-      loginStatus: "loggedIn",
-      user: state.login.user
+      status: state.login.status,
+      current: state.login.user
    }
 }
 

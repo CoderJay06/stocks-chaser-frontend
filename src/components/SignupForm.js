@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addUser } from '../actions/users';
+import { addUser, loginUser } from '../actions/users';
+import { Redirect } from 'react-router-dom';
+import UserProfileContainer from '../containers/UserProfileContainer';
 
 class SignupForm extends Component {
    state = {
@@ -8,8 +10,7 @@ class SignupForm extends Component {
          email: '',
          username: '',
          password: ''
-      },
-      isSignedUp: false
+      }
    };
 
    handleOnChange = event => {
@@ -38,8 +39,17 @@ class SignupForm extends Component {
       fetch(usersUrl, configUsersObj)
          .then(response => response.json())
       
-      // update store with new user
+      // update store with new user 
       this.props.addUser(this.state.user)
+      
+      // login user with their username and password
+      const { username, password } = this.state.user;
+      const user = {
+         username: username,
+         password: password
+      };
+      console.log(user)
+      this.props.loginUser(user)
       
       // reset user state
       this.setState({
@@ -47,15 +57,18 @@ class SignupForm extends Component {
             email: '',
             username: '',
             password: ''
-         },
-         isSignedUp: true
+         }
       });
    }
 
    render() {
       return (
-         this.state.isSignedUp ?
-            null // redirect to user profile if already signed up
+         
+         this.props.status === "loggedIn" ?
+            // redirect to user profile if already signed up
+            <Redirect to="/profile">
+               <UserProfileContainer />
+            </Redirect>
             :
             <div>
                <form className="max-w-6xl w-3/4 mx-auto mt-16 shadow-lg px-4 py-6"
@@ -93,4 +106,10 @@ class SignupForm extends Component {
    }
 }
 
-export default connect(null, { addUser })(SignupForm);
+const mapStateToProps = state => {
+   return {
+      status: state.login.status
+   }
+}
+
+export default connect(mapStateToProps, { addUser, loginUser })(SignupForm);
