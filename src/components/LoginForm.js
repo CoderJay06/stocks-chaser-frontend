@@ -10,8 +10,7 @@ class LoginForm extends Component {
       user: {
          username: '',
          password: ''
-      },
-      isLoggedIn: false
+      }
    };
 
    handleOnChange = event => {
@@ -40,27 +39,31 @@ class LoginForm extends Component {
       // login user on submit
       fetch(loginUrl, userConfigObj)
          .then(response => response.json())
+         .then(userData => {
+            userData.error ? 
+               alert(userData.error) : this.props.loginUser(userData)
+         })
          .catch(loginError => {
             alert(loginError.message)
          });
       
       // dispatch login with current state passed in
-      this.props.loginUser(this.state.user);
+      // this.props.loginUser(this.state.user);
 
       // update state
       this.setState({
          user: {
             username: '',
             password: ''
-         },
-         isLoggedIn: true
+         }
       });
    }
 
    render() {
-      return (
+      return (      
          this.props.status === "loggedIn" ?
-            <h1>Logged in as, {this.props.user.username}</h1>
+            <h1>Logged in as, {this.props.current.user.username}{console.log(this.props.current)}</h1>
+      
              // redirect to user profile if logged in
             :
             <div>
@@ -97,7 +100,7 @@ const mapStateToProps = state => {
    // debugger
    return {
       status: state.login.status,
-      user: state.login.user
+      current: state.login.user
    }
 }
 

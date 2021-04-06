@@ -1,10 +1,10 @@
 
 
-const UserProfile = (props) => {
+const UserProfile = ({username}) => {
    return (
       <div>
-         {console.log(props)}
-         <h4>{props.username}'s Profile</h4>
+         {/* {console.log(props)} */}
+         <h4>{username}'s Profile</h4>
       </div>
    )
 };

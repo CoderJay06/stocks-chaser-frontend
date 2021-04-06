@@ -5,10 +5,11 @@ import { connect } from 'react-redux';
 class UserProfileContainer extends Component {
    render() {
       const isLoggedIn = this.props.status;
+      {console.log(this.props.current.user)}
       return (
          <div>
             {isLoggedIn === "loggedIn" ? 
-               <UserProfile username={this.props.currentUser.username} />
+               <UserProfile username={this.props.current.user.username} />
                :
                null
             }
@@ -21,7 +22,7 @@ const mapStateToProps = state => {
    // debugger
    return {
       status: state.login.status,
-      currentUser: state.login.user
+      current: state.login.user
    }
 }
 

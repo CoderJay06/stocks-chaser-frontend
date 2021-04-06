@@ -8,8 +8,7 @@ class SignupForm extends Component {
          email: '',
          username: '',
          password: ''
-      },
-      isSignedUp: false
+      }
    };
 
    handleOnChange = event => {
@@ -56,14 +55,14 @@ class SignupForm extends Component {
             email: '',
             username: '',
             password: ''
-         },
-         isSignedUp: true
+         }
       });
    }
 
    render() {
       return (
-         this.state.isSignedUp ?
+         
+         this.props.status === "loggedIn" ?
             null // redirect to user profile if already signed up
             :
             <div>
@@ -102,4 +101,10 @@ class SignupForm extends Component {
    }
 }
 
-export default connect(null, { addUser, loginUser })(SignupForm);
+const mapStateToProps = state => {
+   return {
+      status: state.login.status
+   }
+}
+
+export default connect(mapStateToProps, { addUser, loginUser })(SignupForm);
