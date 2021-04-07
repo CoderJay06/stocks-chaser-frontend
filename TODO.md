@@ -17,6 +17,10 @@
          - start with login form. Need to authenticate user on backend,
            dispatch action to login user
 
+      [ ] add portfolioReducer for creating users portfolio
+         - Portfolio state
+            
+
       - Stocks
          what will our state look like ?
             state = {
@@ -57,6 +61,10 @@
          - renders StockSearchForm component and
            passes state as props
 
+      [ ] Build Portfolio container
+         - renders Portfolio component
+         - passes props
+
    ## Components TODO
       [x] Build Stocks Component
          - is stateless and functional
@@ -95,3 +103,6 @@
          - connect to store (state, dispatch)
          - dispatches action to add user
 
+      [ ] Build Portfolio component
+         - is functional component 
+         - recieves props from container
