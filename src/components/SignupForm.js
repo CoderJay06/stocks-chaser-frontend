@@ -39,9 +39,6 @@ class SignupForm extends Component {
       fetch(usersUrl, configUsersObj)
          .then(response => response.json())
       
-      // update store with new user 
-      // this.props.addUser(this.state.user)
-      
       // login user with their username and password
       const { username, password } = this.state.user;
       const user = {
