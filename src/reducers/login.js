@@ -2,8 +2,7 @@
 const initialState = {
    status: 'notLoggedIn',
    user: {
-      username: '',
-      password: '' 
+      username: ''
    }
 }
 
