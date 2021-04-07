@@ -92,8 +92,6 @@ class LoginForm extends Component {
                         value="Login"
                         className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-400 transition-all duration-200" />
                </form>
-               {this.state.user.username}
-               {this.state.user.password}
             </div>
       )
    }
