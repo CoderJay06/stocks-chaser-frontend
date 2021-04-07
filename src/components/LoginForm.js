@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { loginUser } from '../actions/users';
+// import { loginUser } from '../actions/users';
+import { fetchLogin } from '../actions/fetchUsers';
 import { Redirect } from 'react-router-dom'; 
 import UserProfileContainer from '../containers/UserProfileContainer';
 
@@ -25,29 +26,29 @@ class LoginForm extends Component {
    handleOnSubmit = event => {
       event.preventDefault();
       // fetch session to login user
-      const loginUrl = "http://localhost:3000/sessions";
-      const userConfigObj = {
-         method: "POST",
-         headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-         },
-         body: JSON.stringify(this.state.user)
-      }
+      // const loginUrl = "http://localhost:3000/sessions";
+      // const userConfigObj = {
+      //    method: "POST",
+      //    headers: {
+      //       "Content-Type": "application/json",
+      //       "Accept": "application/json"
+      //    },
+      //    body: JSON.stringify(this.state.user)
+      // }
 
-      // login user on submit
-      fetch(loginUrl, userConfigObj)
-         .then(response => response.json())
-         .then(userData => {
-            userData.error ?
-               alert(userData.error)
-               :
-               this.props.loginUser(userData)
-         })
-         .catch(loginError => {
-            alert(loginError.message)
-         });
-      
+      // // login user on submit
+      // fetch(loginUrl, userConfigObj)
+      //    .then(response => response.json())
+      //    .then(userData => {
+      //       userData.error ?
+      //          alert(userData.error)
+      //          :
+      //          this.props.loginUser(userData)
+      //    })
+      //    .catch(loginError => {
+      //       alert(loginError.message)
+      //    });
+      this.props.fetchLogin(this.state.user)
       // dispatch login with current state passed in
       // this.props.loginUser(this.state.user);
 
@@ -105,4 +106,4 @@ const mapStateToProps = state => {
    }
 }
 
-export default connect(mapStateToProps, { loginUser })(LoginForm);
+export default connect(mapStateToProps, { fetchLogin })(LoginForm);

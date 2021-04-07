@@ -11,8 +11,11 @@
       [x] add connect for mapping state and dispatctch to props
       [x] add stocks data to the store
       [x] add logged in user data to the store
-      [ ] remove users from the store it is not needed 
+      [x] remove users from the store it is not needed 
           (better for security to only keep this in the db)
+      [ ] refactor to make all fetch requests use redux-thunk logic
+         - start with login form. Need to authenticate user on backend,
+           dispatch action to login user
 
       - Stocks
          what will our state look like ?
