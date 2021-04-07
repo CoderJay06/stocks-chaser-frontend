@@ -5,7 +5,7 @@ import {
 
 // fetch login
 export function fetchLogin(user) {
-   // handle login actio
+   // handle login action
    return (dispatch) => {
       // login user on submit
       const loginUrl = "http://localhost:3000/sessions";
@@ -51,6 +51,43 @@ export function fetchLogout(user) {
 }
 
 // fetch signup
+export function fetchSignup(userState) {
+   return (dispatch) => {
+      // handle action for signing up user
+      const usersUrl = "http://localhost:3000/api/v1/users";
+      const configUsersObj = {
+         method: "POST",
+         headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+         },
+         body: JSON.stringify({user: userState})
+      };
+
+      // signup user, add them to users db
+      fetch(usersUrl, configUsersObj)
+         .then(response => response.json())
+      
+      // login user with their username and password
+      const { username } = userState;
+      const user = {
+         username: username
+      };
+      dispatch(loginUser(user))
+   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

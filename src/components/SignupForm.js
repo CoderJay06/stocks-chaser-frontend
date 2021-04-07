@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { loginUser } from '../actions/users';
+import { fetchSignup } from '../actions/fetchUsers';
 import { Redirect } from 'react-router-dom';
 import UserProfileContainer from '../containers/UserProfileContainer';
 
@@ -25,30 +25,9 @@ class SignupForm extends Component {
 
    handleOnSubmit = event => {
       event.preventDefault();
-      const usersUrl = "http://localhost:3000/api/v1/users";
-      const configUsersObj = {
-         method: "POST",
-         headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-         },
-         body: JSON.stringify(this.state)
-      };
-
-      // signup user, add them to users db
-      fetch(usersUrl, configUsersObj)
-         .then(response => response.json())
       
-      // login user with their username and password
-      const { username, password } = this.state.user;
-      const user = {
-         username: username,
-         password: password
-      };
-      console.log(user)
-      this.props.loginUser(user)
-      
-      // reset user state
+      // signup user and reset user state
+      this.props.fetchSignup(this.state.user);
       this.setState({
          user: {
             email: '',
@@ -59,8 +38,7 @@ class SignupForm extends Component {
    }
 
    render() {
-      return (
-         
+      return (        
          this.props.status === "loggedIn" ?
             // redirect to user profile if already signed up
             <Redirect to="/profile">
@@ -109,4 +87,4 @@ const mapStateToProps = state => {
    }
 }
 
-export default connect(mapStateToProps, { loginUser })(SignupForm);
+export default connect(mapStateToProps, { fetchSignup })(SignupForm);
