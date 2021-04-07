@@ -38,10 +38,7 @@ class LoginForm extends Component {
       // login user on submit
       fetch(loginUrl, userConfigObj)
          .then(response => response.json())
-         .then(userData => {
-            userData.error ? 
-               alert(userData.error) : this.props.loginUser(userData)
-         })
+         .then(userData => this.props.loginUser(userData))
          .catch(loginError => {
             alert(loginError.message)
          });

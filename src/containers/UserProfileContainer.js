@@ -8,7 +8,7 @@ class UserProfileContainer extends Component {
       return (
          <div>
             {this.props.status === "loggedIn" ? 
-               <UserProfile username={this.props.current.user.username} />
+               <UserProfile username={this.props.currentUser.username} />
                // <Logout />
                :
                <Redirect to="/" /> // send to homepage if not logged in
@@ -21,7 +21,7 @@ class UserProfileContainer extends Component {
 const mapStateToProps = state => {
    return {
       status: state.login.status,
-      current: state.login.user
+      currentUser: state.login.user
    }
 }
 
