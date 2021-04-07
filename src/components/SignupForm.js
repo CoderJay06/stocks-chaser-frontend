@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addUser, loginUser } from '../actions/users';
+import { loginUser } from '../actions/users';
 import { Redirect } from 'react-router-dom';
 import UserProfileContainer from '../containers/UserProfileContainer';
 
@@ -38,9 +38,6 @@ class SignupForm extends Component {
       // signup user, add them to users db
       fetch(usersUrl, configUsersObj)
          .then(response => response.json())
-      
-      // update store with new user 
-      this.props.addUser(this.state.user)
       
       // login user with their username and password
       const { username, password } = this.state.user;
@@ -112,4 +109,4 @@ const mapStateToProps = state => {
    }
 }
 
-export default connect(mapStateToProps, { addUser, loginUser })(SignupForm);
+export default connect(mapStateToProps, { loginUser })(SignupForm);
