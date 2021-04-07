@@ -10,7 +10,9 @@
       [x] set up redux store
       [x] add connect for mapping state and dispatctch to props
       [x] add stocks data to the store
-      [ ] add users data to the store
+      [x] add logged in user data to the store
+      [ ] remove users from the store it is not needed 
+          (better for security to only keep this in the db)
 
       - Stocks
          what will our state look like ?
