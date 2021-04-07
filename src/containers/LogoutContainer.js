@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { logoutUser } from '../actions/users';
+import { fetchLogout } from '../actions/fetchUsers';
 import Logout from '../components/Logout';
 
 class LogoutContainer extends Component {
@@ -8,7 +8,7 @@ class LogoutContainer extends Component {
       return (
          <div>
             {console.log('LogoutContainer: ', this.props.currentUser)}
-            <Logout user={this.props.currentUser.username} dispatchLogout={this.props.logoutUser} />
+            <Logout user={this.props.currentUser.username} dispatchFetchLogout={this.props.fetchLogout} />
          </div>
       )
    }
@@ -21,4 +21,4 @@ const mapStateToProps = state => {
    }
 }
 
-export default connect(mapStateToProps, { logoutUser })(LogoutContainer);
+export default connect(mapStateToProps, { fetchLogout })(LogoutContainer);

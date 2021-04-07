@@ -1,5 +1,6 @@
 import {
-   loginUser
+   loginUser,
+   logoutUser
 } from './users';
 
 // fetch login
@@ -31,5 +32,27 @@ export function fetchLogin(user) {
 }
 
 // fetch logout
+export function fetchLogout(user) {
+   return (dispatch) => {
+      // handle logout action
+      const url = "http://localhost:3000/sessions";
+      const userConfigObj = {
+         method: "DELETE",
+         headers: {
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+         },
+         body: JSON.stringify({username: user})
+      }
+      console.log('user config obj: ', userConfigObj);
+      fetch(url, userConfigObj)
+      dispatch(logoutUser(user))
+   }
+}
 
 // fetch signup
+
+
+
+
+
