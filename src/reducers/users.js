@@ -1,17 +1,28 @@
 // import { ADD_USER } from '../actions/users';
 
+// const initialState = {
+//    users: {
+//       all: []
+//    }
+// };
 const initialState = {
-   users: {
-      all: []
-   }
+   all: []
 };
 
 export default function usersReducer(state = initialState, action) {
    switch (action.type) {
       case "ADD_USER":
-         // return new state object with user
+         // return new state object with new user
+         // return {
+         //    ...state,
+         //    users: {
+         //       all: [...state.users.all.concat([action.payload])]
+         //    }
+         // }
+         // debugger
          return {
-            ...state.users.all.concat([action.payload])
+            ...state,
+            all: [...state.all.concat([action.payload])]
          }
       default: 
          break;
