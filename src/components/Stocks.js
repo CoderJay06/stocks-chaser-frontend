@@ -4,6 +4,7 @@ import { Stock } from '../components/Stock';
 // stateless functional component for rendering Stocks
 export const Stocks = (props) => {
    const { stocks } = props;
+   console.log('Stocks: ', stocks)
    const renderStocks = stocks.map(stock => {
       return (
          <Stock key={stock.id} 

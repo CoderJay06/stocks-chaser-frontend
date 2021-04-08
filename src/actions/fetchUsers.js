@@ -2,7 +2,6 @@ import {
    loginUser,
    logoutUser
 } from './users';
-import { addPortfolio } from './portfolio';
 
 // fetch login
 export function fetchLogin(user) {
@@ -68,12 +67,6 @@ export function fetchSignup(userState) {
       // signup user, add them to users db
       fetch(usersUrl, configUsersObj)
          .then(response => response.json())
-         .then(userData => {
-            dispatch(addPortfolio({
-               userId: userData.id,
-               stocks: []  
-            }))
-         })
       
       // login user with their username and password
       const { username } = userState;
