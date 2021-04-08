@@ -1,4 +1,5 @@
 // actions to handle portfolio requests to the backend
+import { addPortfolio } from '../actions/portfolio';
 
 export function fetchPortfolios(user) {
    return (dispatch) => {
@@ -20,6 +21,13 @@ export function fetchPortfolios(user) {
          body: JSON.stringify(newPortfolio)
       }
       fetch(portfoliosUrl, portfolioConfigObj)
-         .then(response => console.log(response))
+         .then(response => response.json())
+         .then(portfolioData => {
+            // add newly created portfolio to the store
+            dispatch(addPortfolio(portfolioData))
+         })
+         .catch(error => {
+            // handle error for creating portfolio
+         })
    }
 } 
