@@ -6,5 +6,5 @@ import portfolioReducer from './portfolio';
 export default combineReducers({
    stocks: stocksReducer,
    login: loginReducer,
-   portfolioReducer
+   portfolio: portfolioReducer
 });

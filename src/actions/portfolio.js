@@ -5,3 +5,10 @@ export const addPortfolio = portfolio => {
       payload: portfolio
    }
 }
+
+export const viewPortfolio = portfolio => {
+   return {
+      type: "VIEW_PORTFOLIO",
+      payload: portfolio
+   }
+}

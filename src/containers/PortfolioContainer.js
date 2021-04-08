@@ -4,29 +4,20 @@ import { Redirect } from 'react-router-dom';
 import Portfolio from '../components/Portfolio';
 
 class PortfolioContainer extends Component {
-   state = {
-      portfolio: {
-         userId: '',
-         stocks: []
-      }
-   }
-
-   handleOnClick = () => {
-      // view users portfolio
-   }
-
    render() {
       return (
          <div>
-            <button 
-               className="w-half p-4 bg-blue-300 mt-4 hover:bg-blue-400 transition-all duration-200"
-               onClick={this.handleOnClick}
-            >
-            View Portfolio
-            </button>
+            <Portfolio user={this.props.user} portfolio={this.props.portfolio} />
          </div>
       )
    }
 }
 
-export default connect(null, null)(PortfolioContainer);
+const mapStateToProps = state => {
+   return {
+      portfolio: state.portfolio,
+      user: state.login.user
+   }
+}
+
+export default connect(mapStateToProps, null)(PortfolioContainer);
