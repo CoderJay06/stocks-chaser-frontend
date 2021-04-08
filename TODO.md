@@ -19,7 +19,31 @@
 
       [ ] add portfolioReducer for creating users portfolio
          - Portfolio state
-            
+            ex 1:
+            {
+               portfolio: [
+                  {
+                     id: 1,
+                     user_id: 1
+                  }
+               ],
+               stocks: [
+                  0: {
+                     ticker: 'TSLA',
+                     name: 'Tesla'
+                  }
+               ]
+            }
+
+            ex 2:
+            {
+               portfolio: {},
+               stocks: {}
+            }
+
+
+
+
 
       - Stocks
          what will our state look like ?

@@ -12,19 +12,7 @@ class PortfolioContainer extends Component {
    }
 
    handleOnClick = () => {
-      const url = "http://localhost:3000/api/v1/users/1/portfolios/1";
-      const portfolioConfigObj = {
-         method: "GET",
-         headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-         }
-      };
-      fetch(url, portfolioConfigObj)
-         .then(response => response.json())
-         .then(portfolioData => {
-            debugger
-         })
+      // view users portfolio
    }
 
    render() {
@@ -41,4 +29,4 @@ class PortfolioContainer extends Component {
    }
 }
 
-export default connect()(PortfolioContainer);
+export default connect(null, null)(PortfolioContainer);
