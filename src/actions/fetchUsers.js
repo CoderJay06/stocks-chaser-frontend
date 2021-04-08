@@ -67,13 +67,16 @@ export function fetchSignup(userState) {
       // signup user, add them to users db
       fetch(usersUrl, configUsersObj)
          .then(response => response.json())
+         .then(userData => {
+            dispatch(loginUser(userData))
+         })
       
       // login user with their username and password
-      const { username } = userState;
-      const user = {
-         username: username
-      };
-      dispatch(loginUser(user))
+      // const { username } = userState;
+      // const user = {
+      //    username: username
+      // };
+      // dispatch(loginUser(user))
    }
 }
 

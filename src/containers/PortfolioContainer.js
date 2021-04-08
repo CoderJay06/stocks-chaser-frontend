@@ -13,19 +13,15 @@ class PortfolioContainer extends Component {
    render() {
       return (
          <div>
-            {console.log('User portfolio: ', this.props.user)}
-            {this.props.portfolio ?
+            {console.log('User: ', this.props.user)}
+            {this.props.portfolio.id ?
                <Portfolio user={this.props.user} portfolio={this.props.portfolio} />
                :
                <button 
                   className="w-half p-4 bg-blue-300 mt-4 hover:bg-blue-400 transition-all duration-200"
-                  onClick={this.handleOnClick}
+                  onClick={() => this.handleOnClick()}
                >Add Portfolio</button>
             }
-            <button 
-                  className="w-half p-4 bg-blue-300 mt-4 hover:bg-blue-400 transition-all duration-200"
-                  onClick={() => this.handleOnClick()}
-         >Add Portfolio</button>
          </div>
       )
    }
