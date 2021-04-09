@@ -8,9 +8,11 @@ export const Stocks = (props) => {
    const renderStocks = stocks.map(stock => {
       return (
          <Stock key={stock.id} 
+                stock={stock}
                 tickerSymbol={stock.ticker}
                 name={stock.name}
                 pricePerShare={stock.price_per_share}
+                addStock={props.addStock}
           />
       )
    });

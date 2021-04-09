@@ -12,3 +12,10 @@ export const viewPortfolio = portfolio => {
       payload: portfolio
    }
 }
+
+export const addStock = stock => {
+   return {
+      type: "ADD_STOCK",
+      payload: stock
+   }
+}
