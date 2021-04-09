@@ -6,6 +6,12 @@ export const addPortfolio = portfolio => {
    }
 }
 
+export const removePortfolio = () => {
+   return {
+      type: "REMOVE_PORTFOLIO"
+   }
+}
+
 export const viewPortfolio = portfolio => {
    return {
       type: "VIEW_PORTFOLIO",

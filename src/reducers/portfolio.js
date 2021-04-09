@@ -18,6 +18,10 @@ export default function portfolioReducer(state = initialState, action) {
          return {
             ...state
          }
+      case "REMOVE_PORTFOLIO":
+         return {
+            stocks: []
+         }
       case "ADD_STOCK":
          // debugger
          return {
