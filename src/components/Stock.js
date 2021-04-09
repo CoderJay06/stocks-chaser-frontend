@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-export const Stock = ({stock, tickerSymbol, name, pricePerShare, addStock}) => {
+export const Stock = ({stock, tickerSymbol, name, pricePerShare, addStock, isSearchedStock}) => {
    const handleViewOnClick = () => {
       // will render selected stock view page
       debugger
@@ -22,10 +22,15 @@ export const Stock = ({stock, tickerSymbol, name, pricePerShare, addStock}) => {
          <button onClick={handleViewOnClick}
                  className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-100 transition-all duration-200"
          >View</button>
-         <button onClick={handleAddOnClick}
-                 className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-100 transition-all duration-200"
-         >Add
-         </button>
+         {
+            isSearchedStock ?
+               <button onClick={handleAddOnClick}
+                     className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-100 transition-all duration-200"
+               >Add
+               </button>
+               :
+               null
+         }
          <br />
       </div>
    )

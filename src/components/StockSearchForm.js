@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Stock } from '../components/Stock';
+import { connect } from 'react-redux';
+import { addStock } from '../actions/portfolio';
 
-export default class StockSearchForm extends Component {
+class StockSearchForm extends Component {
    _APIKEY = "DL6L2X8WNRCW16C";
    state = {
       searchInput: '',
@@ -60,13 +62,23 @@ export default class StockSearchForm extends Component {
             {console.log(this.state.searchResults.Symbol)}
             {this.state.searchResults.Symbol ?
                <Stock key={this.state.searchResults.id} 
-                      id={this.state.searchResults.id}
+                      stock={this.state.searchResults}
                       tickerSymbol={this.state.searchResults.Symbol}
                       name={this.state.searchResults.Name}
-                      pricePerShare={this.state.searchResults['50DayMovingAverage']} />
+                      pricePerShare={this.state.searchResults['50DayMovingAverage']}
+                      addStock={this.props.dispatchAddStock}
+                      isSearchedStock={true} />
                : null 
             }
          </div>
       )
    }
 }
+
+const mapDispatchToProps = dispatch => {
+   return {
+      dispatchAddStock: stock => dispatch(addStock(stock))
+   }
+}
+
+export default connect(null, mapDispatchToProps)(StockSearchForm)
