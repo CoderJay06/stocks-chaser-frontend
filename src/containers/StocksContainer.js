@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Stocks } from '../components/Stocks';
 import { connect } from 'react-redux';
 import { fetchStocks } from '../actions/fetchStocks';
+import { addStock } from '../actions/portfolio';
 
 class StocksContainer extends Component {
    // _isMounted = false; // temp fix to prevent unmounted component error
@@ -62,7 +63,7 @@ class StocksContainer extends Component {
                {this.props.loadingState === "loading" ?
                   "Loading stocks..."
                   :
-                  <Stocks stocks={this.props.stocks} />}
+                  <Stocks stocks={this.props.stocks} addStock={this.props.dispatchAddStock} />}
                {console.log('StocksContainer props: ', this.props.stocks)}
             </div>
          )
@@ -79,7 +80,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
    return {
-      dispatchFetchStocks: () => dispatch(fetchStocks())
+      dispatchFetchStocks: () => dispatch(fetchStocks()),
+      dispatchAddStock: stock => dispatch(addStock(stock))
    }
 }
 
