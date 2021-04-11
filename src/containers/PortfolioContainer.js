@@ -18,7 +18,7 @@ class PortfolioContainer extends Component {
                <Portfolio user={this.props.user} portfolio={this.props.portfolio} />
                :
                <button 
-                  className="w-half p-4 bg-blue-300 mt-4 hover:bg-blue-400 transition-all duration-200"
+                  className="w-2/4 p-4 bg-blue-300 mt-4 hover:bg-blue-400 transition-all duration-200"
                   onClick={() => this.handleOnClick()}
                >Add Portfolio</button>
             }

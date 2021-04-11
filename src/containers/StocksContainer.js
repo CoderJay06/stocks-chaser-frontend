@@ -58,7 +58,6 @@ class StocksContainer extends Component {
 
          return (
             <div>
-               StocksContainer
                <br />
                {this.props.loadingState === "loading" ?
                   "Loading stocks..."
