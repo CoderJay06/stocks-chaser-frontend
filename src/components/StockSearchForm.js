@@ -44,7 +44,7 @@ class StockSearchForm extends Component {
       return (
          <div>
             <form onSubmit={this.handleOnSubmit}
-                  className="max-w-6xl w-3/4 mx-auto mt-16 shadow-lg px-4 py-6"
+                  className="max-w-6xl w-2/4 mx-auto mt-16 shadow-lg px-4 py-6"
              >
                <label>Search a Stock</label>
                <input type="text" 

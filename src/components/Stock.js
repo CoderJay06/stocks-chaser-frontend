@@ -20,12 +20,12 @@ export const Stock = ({stock, tickerSymbol, name, pricePerShare, addStock, isSea
          <p>Name: {name}</p>
          <p>Share Price: ${pricePerShare}</p>
          <button onClick={handleViewOnClick}
-                 className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-100 transition-all duration-200"
+                 className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-400 transition-all duration-200"
          >View</button>
          {
             isSearchedStock ?
                <button onClick={handleAddOnClick}
-                     className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-100 transition-all duration-200"
+                     className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-400 transition-all duration-200"
                >Add
                </button>
                :
