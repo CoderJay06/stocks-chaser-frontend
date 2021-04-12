@@ -14,7 +14,7 @@ import {
  export const Navbar = () => {
     return (
       <Router>
-         <nav className="text-center bg-blue-500 text-black-100 p-4">
+         <nav className="text-center bg-blue-500 text-green-100 p-4">
             <NavLink
                className="inline-block px-4 py-2"
                exact to="/stocks">

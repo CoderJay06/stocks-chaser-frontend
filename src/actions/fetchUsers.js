@@ -70,29 +70,8 @@ export function fetchSignup(userState) {
          .then(userData => {
             dispatch(loginUser(userData))
          })
-      
-      // login user with their username and password
-      // const { username } = userState;
-      // const user = {
-      //    username: username
-      // };
-      // dispatch(loginUser(user))
+         .catch(signupError => {
+            alert(signupError.message)
+         });
    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

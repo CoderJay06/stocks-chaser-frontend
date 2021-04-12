@@ -10,7 +10,7 @@ const Logout = ({user, dispatchFetchLogout, dispatchRemovePortfolio}) => {
    return (
       <div>
          <button 
-            className="w-half p-4 bg-blue-300 mt-4 hover:bg-blue-400 transition-all duration-200" 
+            className="w-2/4 p-4 bg-blue-300 mt-4 hover:bg-blue-400 transition-all duration-200" 
             onClick={() => handleOnClick(user)}
          >
          Logout
