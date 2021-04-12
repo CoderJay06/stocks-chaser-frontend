@@ -1,10 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import ViewStockChart from './ViewStockChart';
 
 export const Stock = ({stock, tickerSymbol, name, pricePerShare, addStock, isSearchedStock}) => {
+   const history = useHistory();
+
    const handleViewOnClick = () => {
       // will render selected stock view page
-      debugger
+      // debugger
+      // event.preventDefault();
+      // <Redirect to="/stock-chart">
+      //    <ViewStockChart stock={stock} />
+      // </Redirect>
+      history.push({
+         pathname: "/stock-chart",
+         state: { stock: stock }
+      });
    }
 
    const handleAddOnClick = () => {
