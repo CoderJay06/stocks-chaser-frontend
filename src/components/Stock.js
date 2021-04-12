@@ -14,7 +14,7 @@ export const Stock = ({stock, tickerSymbol, name, pricePerShare, addStock, isSea
    }
 
    return (
-      <div >
+      <div className="max-w-6xl w-2/4 mx-auto mt-16 shadow-lg px-4 py-6">
          <h4>Stock</h4>
          <p>Ticker: {tickerSymbol}</p>
          <p>Name: {name}</p>
