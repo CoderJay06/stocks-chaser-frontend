@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { addStock } from '../actions/portfolio';
 
 class StockSearchForm extends Component {
-   _APIKEY = "DL6L2X8WNRCW16C";
+   _APIKEY = process.env.REACT_APP_STOCKS_API_KEY;
    state = {
       searchInput: '',
       searchResults: []
