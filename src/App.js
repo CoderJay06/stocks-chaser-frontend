@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Navbar } from './components/Navbar';
 import logo from './styles/Logo';
+import Charts from './Charts';
 
 class App extends Component {
 
@@ -9,6 +10,7 @@ class App extends Component {
          <div className="App" 
               style={logo}>
             <Navbar />
+            <Charts />
          </div>
        );
    }
