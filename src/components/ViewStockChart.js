@@ -8,14 +8,14 @@ export const ViewStockChart = () => {
    const location = useLocation();
 
    useEffect(() => {
-    
+   //  debugger
    }, [location]);
    
    return (
       <div>
          {console.log('props in viewStockChart ', location.state)}
-         <h1>{location.state.stock.Name}</h1>
-         <Charts stockData={location.state.stock} />
+         <h1>{location.state.ticker}</h1>
+         <Charts stockTickerSymbol={location.state.ticker} />
       </div>
    )
 }

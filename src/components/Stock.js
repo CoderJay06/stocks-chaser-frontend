@@ -16,7 +16,7 @@ export const Stock = ({stock, tickerSymbol, name, pricePerShare, addStock, isSea
       // </Redirect>
       history.push({
          pathname: "/stock-chart",
-         state: { stock: stock }
+         state: { ticker: tickerSymbol }
       });
    }
 

@@ -10,7 +10,8 @@ class Charts extends React.Component {
     componentDidMount() {
         console.log('props in Charts ', this.props.stockData)
       //   const { ticker } = this.props.stockData;
-        let ticker = this.props.stockData.Symbol;
+      //   debugger
+        let ticker = this.props.stockTickerSymbol;
         getData(ticker).then(data => {
             data.sort((a,b) => new Date(a.date) > new Date(b.date) ? 1 : -1);
             this.setState({ data })
