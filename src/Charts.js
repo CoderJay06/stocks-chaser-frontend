@@ -11,9 +11,6 @@ class Charts extends React.Component {
         console.log('props in Charts ', this.props.stockData)
         const { ticker } = this.props.stockData;
         getData(ticker).then(data => {
-            // debugger
-            // data.sort((d1, d2) => Number(d2.date) - Number(d1.date))
-            // debugger
             data.sort((a,b) => new Date(a.date) > new Date(b.date) ? 1 : -1);
             this.setState({ data })
         })

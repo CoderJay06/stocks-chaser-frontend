@@ -4,17 +4,10 @@ import { jsonToCSV } from "react-papaparse";
 
 function parseData(parse) {
    console.log('parse inside parseData ', parse) 
-   //  debugger
     return function(data) {
-      //  debugger
         let dataKeys = Object.keys(data).join(",").split(",");
         let dataValues = Object.values(data).join(",").split(",");
         dataKeys = dataKeys.reduce((acc, curr) => (acc[curr] = dataValues[dataKeys.indexOf(curr)], acc), {});
-      //   dataKeys.date = dataValues[0];
-      //   dataKeys.open = dataValues[1];
-      //   dataKeys.high = dataValues[2];
-      //   dataKeys.low = dataValues[3];
-      //   dataKeys.close = dataValues[4];
         data = dataKeys;
         console.log('data ', data)
         data.date = parse(data.date);
@@ -34,8 +27,6 @@ const parseDate = timeParse("%Y-%m-%d");
 
 
 export function getData(tickerSymbol) {
-   //  const url = `https://www.alphavantage.co/query?function=OVERVIEW&symbol=${tickerSymbol}` +
-   //  `&apikey=${process.env.REACT_APP_STOCKS_API_KEY}`;
     const url = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED` +
       `&symbol=${tickerSymbol}&outputsize=compact&apikey=${process.env.REACT_APP_STOCKS_API_KEY}`
     const promiseData = fetch(url)
@@ -54,12 +45,8 @@ export function getData(tickerSymbol) {
              }
              dateArr.push(obj)
            }
-           dateArr = dateArr.sort((d1, d2) => Number(d2.date) - Number(d1.date))
            data = jsonToCSV(dateArr);
-         //   debugger
-           console.log('dateArr after sort: ', dateArr)
            return tsvParse(data, parseData(parseDate))
-         //   parseData(data, parseDate)
         })
     return promiseData;
 }
