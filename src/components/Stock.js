@@ -1,19 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
-import ViewStockChart from './ViewStockChart';
 
-export const Stock = ({stock, tickerSymbol, name, pricePerShare, addStock, isSearchedStock}) => {
+export const Stock = ({
+   stock, 
+   tickerSymbol, 
+   name, 
+   pricePerShare, 
+   addStock, 
+   isSearchedStock
+}) => {
    const history = useHistory();
 
    const handleViewOnClick = () => {
       // will render selected stock view page
-      // debugger
-      // event.preventDefault();
-      // <Redirect to="/stock-chart">
-      //    <ViewStockChart stock={stock} />
-      // </Redirect>
       history.push({
          pathname: "/stock-chart",
          state: { ticker: tickerSymbol }
@@ -21,7 +21,7 @@ export const Stock = ({stock, tickerSymbol, name, pricePerShare, addStock, isSea
    }
 
    const handleAddOnClick = () => {
-      // need to handle adding stock to users portfolio
+      // handle adding stock to users portfolio
       console.log('Add clicked')
       addStock(stock)
    }
@@ -38,14 +38,12 @@ export const Stock = ({stock, tickerSymbol, name, pricePerShare, addStock, isSea
                   transition-all duration-200"
          >View</button>
          {
-            isSearchedStock ?
-               <button onClick={handleAddOnClick}
-                     className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-400 
-                        transition-all duration-200"
-               >Add
-               </button>
-               :
-               null
+         isSearchedStock ?
+            <button onClick={handleAddOnClick}
+                    className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-400 
+                     transition-all duration-200"
+            >Add</button>
+            : null
          }
          <br />
       </div>
@@ -59,6 +57,4 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, null)(Stock);
-
-
 

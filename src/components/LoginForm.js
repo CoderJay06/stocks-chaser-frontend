@@ -36,13 +36,12 @@ class LoginForm extends Component {
    }
 
    render() {
-      return (      
+      return (    
+         // when logged in redirect to user profile, otherwise render form  
          this.props.status === "loggedIn" ?
-            // redirect to user profile if already logged in
             <Redirect to="/profile">
                <UserProfileContainer />
             </Redirect>
-             // redirect to user profile if logged in
             :
             <div>
                <form className="max-w-6xl w-2/4 mx-auto mt-16 shadow-lg px-4 py-6"
