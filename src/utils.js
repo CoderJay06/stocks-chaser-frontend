@@ -1,18 +1,31 @@
-import { tsvParse} from  "d3-dsv";
+import { tsvParse } from  "d3-dsv";
 import { timeParse } from "d3-time-format";
-
+import { jsonToCSV } from "react-papaparse";
 
 function parseData(parse) {
-    return function(d) {
-        d.date = parse(d.date);
-        d.open = +d.open;
-        d.high = +d.high;
-        d.low = +d.low;
-        d.close = +d.close;
-        d.volume = +d.volume;
+   console.log('parse inside parseData ', parse) 
+   //  debugger
+    return function(data) {
+      //  debugger
+        let dataKeys = Object.keys(data).join(",").split(",");
+        let dataValues = Object.values(data).join(",").split(",");
+        dataKeys = dataKeys.reduce((acc, curr) => (acc[curr] = dataValues[dataKeys.indexOf(curr)], acc), {});
+      //   dataKeys.date = dataValues[0];
+      //   dataKeys.open = dataValues[1];
+      //   dataKeys.high = dataValues[2];
+      //   dataKeys.low = dataValues[3];
+      //   dataKeys.close = dataValues[4];
+        data = dataKeys;
+        console.log('data ', data)
+        data.date = parse(data.date);
+        data.open = +data.open;
+        data.high = +data.high;
+        data.low = +data.low;
+        data.close = +data.close;
+        data.volume = +data.volume;
 
 
-        return d;
+        return data;
     };
 }
 
@@ -20,10 +33,34 @@ function parseData(parse) {
 const parseDate = timeParse("%Y-%m-%d");
 
 
-export function getData() {
-    const promiseMSFT = fetch("https://cdn.rawgit.com/rrag/react-stockcharts/master/docs/data/MSFT.tsv")
-        .then(response => response.text())
-        .then(data => tsvParse(data, parseData(parseDate)))
-    return promiseMSFT;
+export function getData(tickerSymbol) {
+   //  const url = `https://www.alphavantage.co/query?function=OVERVIEW&symbol=${tickerSymbol}` +
+   //  `&apikey=${process.env.REACT_APP_STOCKS_API_KEY}`;
+    const url = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED` +
+      `&symbol=${tickerSymbol}&outputsize=compact&apikey=${process.env.REACT_APP_STOCKS_API_KEY}`
+    const promiseData = fetch(url)
+        .then(response => response.json())
+        .then(data => {
+         let dateArr = [];
+         console.log('data from api: ', data)
+         for (let key in data['Time Series (Daily)']) {
+             let obj = {
+                 date: key,
+                 open: data['Time Series (Daily)'][key]['1. open'],
+                 high: data['Time Series (Daily)'][key]['2. high'],
+                 low: data['Time Series (Daily)'][key]['3. low'],
+                 close: data['Time Series (Daily)'][key]['4. close'],
+                 volume: data['Time Series (Daily)'][key]['6. volume']
+             }
+             dateArr.push(obj)
+           }
+           dateArr = dateArr.sort((d1, d2) => Number(d2.date) - Number(d1.date))
+           data = jsonToCSV(dateArr);
+         //   debugger
+           console.log('dateArr after sort: ', dateArr)
+           return tsvParse(data, parseData(parseDate))
+         //   parseData(data, parseDate)
+        })
+    return promiseData;
 }
 

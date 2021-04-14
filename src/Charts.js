@@ -8,11 +8,18 @@ import { TypeChooser } from "react-stockcharts/lib/helper";
 
 class Charts extends React.Component {
     componentDidMount() {
-        getData().then(data => {
+        console.log('props in Charts ', this.props.stockData)
+        const { ticker } = this.props.stockData;
+        getData(ticker).then(data => {
+            // debugger
+            // data.sort((d1, d2) => Number(d2.date) - Number(d1.date))
+            // debugger
+            data.sort((a,b) => new Date(a.date) > new Date(b.date) ? 1 : -1);
             this.setState({ data })
         })
     }
     render() {
+       console.log('state in Charts ', this.state)
         if (this.state == null) {
             return <div>Loading...</div>
         }

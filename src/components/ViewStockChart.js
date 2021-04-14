@@ -1,6 +1,8 @@
-import React from 'react';
+import React from "react";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import Chart from "react-stockcharts/lib/Chart";
+import Charts from "../Charts";
 
 export const ViewStockChart = () => {
    const location = useLocation();
@@ -11,8 +13,9 @@ export const ViewStockChart = () => {
    
    return (
       <div>
-         {console.log('props in viewStockChart ', )}
+         {console.log('props in viewStockChart ', location.state)}
          {/* show stocks chart data */}
+         <Charts stockData={location.state.stock} />
       </div>
    )
 }
