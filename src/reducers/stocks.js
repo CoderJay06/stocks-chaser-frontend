@@ -12,19 +12,16 @@ const initialState = {
 export default function stocksReducer(state = initialState, action) {
    switch (action.type) {
       case START_LOADING_STOCKS:
-         // return previous state with updated loading status
          return {
             ...state, loadingState: "loading"
          }
       case SUCCESSFULLY_LOADED_STOCKS:
-         // return new state object with loaded stock data and new loading status
          return {
             ...state, 
             loadingState: "loaded",
             all: action.payload
          }
       case ERROR_LOADING_STOCKS:
-         // return error loading status
          return {
             ...state,
             loadingState: "errorLoading",

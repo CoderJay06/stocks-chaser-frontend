@@ -21,9 +21,7 @@ export default function portfolioReducer(state = initialState, action) {
       case "REMOVE_PORTFOLIO":
          return initialState;
       case "ADD_STOCK":
-         // debugger
          return {
-            // need update add stock to users portfolio here
             stocks: [...state.stocks]
          }
       default:
