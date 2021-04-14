@@ -9,7 +9,6 @@ class UserProfileContainer extends Component {
          <div className="max-w-6xl w-2/4 mx-auto mt-16 shadow-lg text-green-100 px-4 py-6">
             {this.props.status === "loggedIn" ? 
                <UserProfile username={this.props.currentUser.username} /> 
-               // <Logout />
                :
                <Redirect to="/" /> // send to homepage if not logged in
             }

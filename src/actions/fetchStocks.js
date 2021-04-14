@@ -1,4 +1,4 @@
-// Action using redux thunk to fetch stocks
+// Actions using redux thunk to fetch stocks
 import { 
    START_LOADING_STOCKS, 
    SUCCESSFULLY_LOADED_STOCKS,

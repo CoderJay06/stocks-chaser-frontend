@@ -1,24 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
 import Portfolio from '../components/Portfolio';
 import { fetchPortfolios } from '../actions/fetchPortfolios';
 
 class PortfolioContainer extends Component {
    handleOnClick = () => {
       // add a new portfolio for current user
-      console.log('user inside handleClick: ', this.props.user)
       this.props.dispatchFetchPortfolios(this.props.user)
    }
+
    render() {
       return (
          <div>
-            {console.log('User: ', this.props.user)}
             {this.props.portfolio.id ?
                <Portfolio user={this.props.user} portfolio={this.props.portfolio} />
                :
                <button 
-                  className="w-2/4 p-4 bg-blue-300 mt-4 hover:bg-blue-400 transition-all duration-200"
+                  className="w-2/4 p-4 bg-blue-300 mt-4 hover:bg-blue-400 
+                     transition-all duration-200"
                   onClick={() => this.handleOnClick()}
                >Add Portfolio</button>
             }
@@ -41,5 +40,3 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PortfolioContainer);
-
-
