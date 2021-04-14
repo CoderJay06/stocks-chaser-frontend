@@ -22,7 +22,6 @@ export const Stock = ({
 
    const handleAddOnClick = () => {
       // handle adding stock to users portfolio
-      console.log('Add clicked')
       addStock(stock)
    }
 
@@ -35,14 +34,13 @@ export const Stock = ({
          <p>Share Price: ${pricePerShare}</p>
          <button onClick={handleViewOnClick}
                  className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-400 
-                  transition-all duration-200"
-         >View</button>
+                  transition-all duration-200">View</button>
          {
+         // we only want to show this button for stocks that can be added to portfolio 
          isSearchedStock ?
             <button onClick={handleAddOnClick}
                     className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-400 
-                     transition-all duration-200"
-            >Add</button>
+                     transition-all duration-200">Add</button>
             : null
          }
          <br />

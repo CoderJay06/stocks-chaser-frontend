@@ -17,7 +17,6 @@ class StockSearchForm extends Component {
    }
 
    handleOnSubmit = event => {
-       // fetch searched stock by current state
       event.preventDefault();
 
       const searchQuery = 
@@ -31,21 +30,18 @@ class StockSearchForm extends Component {
          }
       }).then(response => response.json())
         .then(stockData => {
-         //   debugger
             this.setState({
                searchInput: '',
                searchResults: stockData
             })
         });
-
    }
 
    render() {
       return (
          <div>
             <form onSubmit={this.handleOnSubmit}
-                  className="max-w-6xl w-2/4 mx-auto mt-16 shadow-lg px-4 py-6"
-             >
+                  className="max-w-6xl w-2/4 mx-auto mt-16 shadow-lg px-4 py-6">
                <label>Search a Stock</label>
                <input type="text" 
                       className="w-full border p-4 my-4"
@@ -53,13 +49,13 @@ class StockSearchForm extends Component {
                       value={this.state.searchInput}
                       placeholder="Enter ticker symbol" />
                <br />
-               <input 
-                  type="submit" 
-                  className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-400 transition-all duration-200"
-                  value="Search" />
+               <input type="submit" 
+                      className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-400 
+                        transition-all duration-200"
+                      value="Search" />
             </form>
-            {console.log(this.state.searchResults)}
-            {console.log(this.state.searchResults.Symbol)}
+
+            {/* render user searched stock */}
             {this.state.searchResults.Symbol ?
                <Stock key={this.state.searchResults.id} 
                       stock={this.state.searchResults}
