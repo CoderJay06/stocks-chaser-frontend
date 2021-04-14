@@ -27,6 +27,7 @@ const parseDate = timeParse("%Y-%m-%d");
 
 
 export function getData(tickerSymbol) {
+   // debugger
     const url = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED` +
       `&symbol=${tickerSymbol}&outputsize=compact&apikey=${process.env.REACT_APP_STOCKS_API_KEY}`
     const promiseData = fetch(url)
