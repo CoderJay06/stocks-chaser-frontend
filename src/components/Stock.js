@@ -23,6 +23,9 @@ export const Stock = ({
    const handleAddOnClick = () => {
       // handle adding stock to users portfolio
       addStock(stock)
+      history.push({
+         pathname: "/profile"
+      });
    }
 
    return (
