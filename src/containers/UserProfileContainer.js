@@ -6,7 +6,8 @@ import { Redirect } from 'react-router-dom';
 class UserProfileContainer extends Component {
    render() {
       return (
-         <div className="max-w-6xl w-2/4 mx-auto mt-16 shadow-lg text-green-100 px-4 py-6">
+         <div className="max-w-6xl w-2/4 mx-auto mt-16 shadow-lg text-green-100 
+            hover:bg-green-400 hover:bg-opacity-25 px-4 py-6">
             {this.props.status === "loggedIn" ? 
                <UserProfile username={this.props.currentUser.username} /> 
                :

@@ -44,7 +44,8 @@ class LoginForm extends Component {
             </Redirect>
             :
             <div>
-               <form className="max-w-6xl w-2/4 mx-auto mt-16 shadow-lg px-4 py-6"
+               <form className="max-w-6xl w-2/4 mx-auto mt-16 shadow-lg 
+                  hover:bg-green-400 hover:bg-opacity-25 px-4 py-6"
                      onSubmit={this.handleOnSubmit}>
                   <label htmlFor="username">Username</label>
                   <input name="username" 
