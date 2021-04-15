@@ -1,6 +1,6 @@
 import Stock from '../components/Stock';
 
-const Portfolio = ({user, portfolio}) => {
+const Portfolio = ({ user, portfolio }) => {
    return (
       <div>
          <h2>{user.username}'s Portfolio</h2>

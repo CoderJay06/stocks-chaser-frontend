@@ -4,6 +4,7 @@ import StockSearchForm from '../components/StockSearchForm';
 import SignupForm from '../components/SignupForm';
 import LoginForm from '../components/LoginForm';
 import UserProfileContainer from '../containers/UserProfileContainer';
+import ViewStockChart from '../components/ViewStockChart';
 import {
    BrowserRouter as Router,
    Switch,
@@ -62,6 +63,9 @@ import {
             <Route path="/profile">
                <UserProfileContainer />
             </Route>  
+            <Route path="/stock-chart">
+               <ViewStockChart />
+            </Route>    
             <Route exact path="/">
                {/* <Home /> */}
             </Route>            

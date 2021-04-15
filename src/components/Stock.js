@@ -1,35 +1,50 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
-export const Stock = ({stock, tickerSymbol, name, pricePerShare, addStock, isSearchedStock}) => {
+export const Stock = ({
+   stock, 
+   tickerSymbol, 
+   name, 
+   pricePerShare, 
+   addStock, 
+   isSearchedStock
+}) => {
+   const history = useHistory();
+
    const handleViewOnClick = () => {
       // will render selected stock view page
-      debugger
+      history.push({
+         pathname: "/stock-chart",
+         state: { ticker: tickerSymbol }
+      });
    }
 
    const handleAddOnClick = () => {
-      // need to handle adding stock to users portfolio
-      console.log('Add clicked')
+      // handle adding stock to users portfolio
       addStock(stock)
+      history.push({
+         pathname: "/profile"
+      });
    }
 
    return (
-      <div className="max-w-6xl w-2/4 mx-auto mt-16 shadow-lg px-4 py-6">
+      <div className="max-w-6xl w-2/4 mx-auto mt-16 shadow-lg 
+         hover:bg-green-500 hover:bg-opacity-75 px-4 py-6">
          <h4>Stock</h4>
          <p>Ticker: {tickerSymbol}</p>
          <p>Name: {name}</p>
          <p>Share Price: ${pricePerShare}</p>
          <button onClick={handleViewOnClick}
-                 className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-400 transition-all duration-200"
-         >View</button>
+                 className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-400 
+                  transition-all duration-200">View</button>
          {
-            isSearchedStock ?
-               <button onClick={handleAddOnClick}
-                     className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-400 transition-all duration-200"
-               >Add
-               </button>
-               :
-               null
+         // we only want to show this button for stocks that can be added to portfolio 
+         isSearchedStock ?
+            <button onClick={handleAddOnClick}
+                    className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-400 
+                     transition-all duration-200">Add</button>
+            : null
          }
          <br />
       </div>
@@ -43,6 +58,4 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps, null)(Stock);
-
-
 

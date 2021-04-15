@@ -8,7 +8,6 @@ class LogoutContainer extends Component {
    render() {
       return (
          <div>
-            {console.log('LogoutContainer: ', this.props.currentUser)}
             <Logout user={this.props.currentUser.username} 
                     dispatchFetchLogout={this.props.fetchLogout}
                     dispatchRemovePortfolio={this.props.removePortfolio} />

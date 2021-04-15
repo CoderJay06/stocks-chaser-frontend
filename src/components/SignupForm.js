@@ -38,43 +38,48 @@ class SignupForm extends Component {
    }
 
    render() {
-      return (        
+      return (
+         // redirect to profile if already signed up, otherwise render form        
          this.props.status === "loggedIn" ?
-            // redirect to user profile if already signed up
             <Redirect to="/profile">
                <UserProfileContainer />
             </Redirect>
             :
             <div>
-               <form className="max-w-6xl w-2/4 mx-auto mt-16 shadow-lg px-4 py-6"
+               <form className="max-w-6xl w-2/4 mx-auto mt-16 shadow-lg 
+                  hover:bg-green-400 hover:bg-opacity-25 px-4 py-6"
                      onSubmit={this.handleOnSubmit}>
                   <label htmlFor="email">Email</label>
                   <input name="email" 
-                        type="email" 
-                        value={this.state.user.email}
-                        onChange={this.handleOnChange} 
-                        placeholder="Enter your email"
-                        className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-400 transition-all duration-200" />
+                         type="email" 
+                         value={this.state.user.email}
+                         onChange={this.handleOnChange} 
+                         placeholder="Enter your email"
+                         className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-400 
+                           transition-all duration-200" />
                   <br />
                   <label htmlFor="username">Username</label>
                   <input name="username" 
-                        type="text" 
-                        value={this.state.user.username}
-                        onChange={this.handleOnChange} 
-                        placeholder="Enter a username"
-                        className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-400 transition-all duration-200" />
+                         type="text" 
+                         value={this.state.user.username}
+                         onChange={this.handleOnChange} 
+                         placeholder="Enter a username"
+                         className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-400 
+                           transition-all duration-200" />
                   <br />
                   <label htmlFor="password">Password</label>
                   <input name="password" 
-                        type="password" 
-                        value={this.state.user.password}
-                        onChange={this.handleOnChange} 
-                        placeholder="Enter a password"
-                        className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-400 transition-all duration-200" />
+                         type="password" 
+                         value={this.state.user.password}
+                         onChange={this.handleOnChange} 
+                         placeholder="Enter a password"
+                         className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-400 
+                           transition-all duration-200" />
                   <br />
                   <input type="submit"
-                        value="Signup"
-                        className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-400 transition-all duration-200" />
+                         value="Signup"
+                         className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-400 
+                           transition-all duration-200" />
                </form>
             </div>
       )
