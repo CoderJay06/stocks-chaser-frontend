@@ -22,7 +22,9 @@ export default function portfolioReducer(state = initialState, action) {
          return initialState;
       case "ADD_STOCK":
          return {
-            stocks: [...state.stocks]
+            ...state,
+            stock_quantity: state.stock_quantity + 1,
+            stocks: [...state.stocks.concat([action.payload])]
          }
       default:
          break;
