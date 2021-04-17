@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 export const Stock = ({
-   stock, 
    tickerSymbol, 
    name, 
    pricePerShare, 
@@ -22,6 +21,12 @@ export const Stock = ({
 
    const handleAddOnClick = () => {
       // handle adding stock to users portfolio
+      const stock = {
+         ticker: tickerSymbol,
+         name: name,
+         price_per_share: pricePerShare
+      };
+      
       addStock(stock)
       history.push({
          pathname: "/profile"

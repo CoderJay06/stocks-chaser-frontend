@@ -5,7 +5,6 @@ import { Redirect } from 'react-router-dom';
 
 class UserProfileContainer extends Component {
    render() {
-      console.log(this.props.currentUser.portfolio)
       return (
          <div className="max-w-6xl w-2/4 mx-auto mt-16 shadow-lg text-green-100 
             hover:bg-green-400 hover:bg-opacity-25 px-4 py-6">

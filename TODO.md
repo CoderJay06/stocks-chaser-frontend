@@ -6,6 +6,8 @@
    [ ] Save rendered api stock data to backend stocks db (Post request)
    [ ] Save users added portfolio, including any stocks they added to the db.
        It should be accessable to them on login
+   [ ] Need to save user added stocks to the db. (They are only saving
+       temporarly in store!)
    
 
    ## Redux

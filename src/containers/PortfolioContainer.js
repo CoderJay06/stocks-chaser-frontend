@@ -11,16 +11,11 @@ class PortfolioContainer extends Component {
    }
 
    render() {
-      console.log('user portfolio ', this.props.user.portfolio)
       return (
          <div>
             {this.props.user.portfolio.id ?
-               // should get users portfolio from the db, add it to the store and display it
-               (
-                  <div>
-                     <Portfolio user={this.props.user} portfolio={this.props.user.portfolio} />
-                  </div>
-               )
+               // should get users portfolio from the db and display it
+               <Portfolio user={this.props.user} portfolio={this.props.user.portfolio} />
                :
                <button 
                   className="w-2/4 p-4 bg-blue-300 mt-4 hover:bg-blue-400 

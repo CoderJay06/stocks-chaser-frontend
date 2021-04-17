@@ -59,7 +59,6 @@ class StockSearchForm extends Component {
             {/* render user searched stock */}
             {this.state.searchResults.Symbol ?
                <Stock key={this.state.searchResults.id} 
-                      stock={this.state.searchResults}
                       tickerSymbol={this.state.searchResults.Symbol}
                       name={this.state.searchResults.Name}
                       pricePerShare={this.state.searchResults['50DayMovingAverage']}

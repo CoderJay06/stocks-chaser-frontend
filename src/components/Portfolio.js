@@ -4,14 +4,13 @@ const Portfolio = ({ user, portfolio }) => {
    return (
       <div>
          <h2>{user.username}'s Portfolio</h2>
-         {portfolio.stocks.length > 0 ?
+         {portfolio.stock_quantity > 0 ?
             portfolio.stocks.map(stock => {
                return (
-                  <Stock key={stock.Symbol} 
-                         stock={stock}
-                         tickerSymbol={stock.Symbol}
-                         name={stock.Name}
-                         pricePerShare={stock['50DayMovingAverage']} />
+                  <Stock key={stock.ticker} 
+                         tickerSymbol={stock.ticker}
+                         name={stock.name}
+                         pricePerShare={stock.price_per_share} />
                )
             }) : null}
       </div>
