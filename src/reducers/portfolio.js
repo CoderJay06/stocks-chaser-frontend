@@ -14,6 +14,13 @@ export default function portfolioReducer(state = initialState, action) {
             stock_quantity: action.payload.stock_quantity,
             ...state
          }
+      case "ADD_EXISTING_PORTFOLIO":
+         return {
+            id: action.payload.id,
+            user_id: action.payload.user_id,
+            stock_quantity: action.payload.stock_quantity,
+            stocks: [action.payload.stocks]
+         }
       case "VIEW_PORTFOLIO":
          return {
             ...state

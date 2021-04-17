@@ -4,6 +4,9 @@
    [x] Install and implement react router into app
    [x] Query stock data from an api
    [ ] Save rendered api stock data to backend stocks db (Post request)
+   [ ] Save users added portfolio, including any stocks they added to the db.
+       It should be accessable to them on login
+   
 
    ## Redux
       [x] install redux, react-redux dependinces
@@ -130,3 +133,4 @@
       [ ] Build Portfolio component
          - is functional component 
          - recieves props from container
+

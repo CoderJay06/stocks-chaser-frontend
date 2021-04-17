@@ -2,6 +2,9 @@ import {
    loginUser,
    logoutUser
 } from './users';
+import {
+   addExistingPortfolio
+} from './portfolio';
 
 // fetch login
 export function fetchLogin(user) {
@@ -20,10 +23,15 @@ export function fetchLogin(user) {
       fetch(loginUrl, userConfigObj)
          .then(response => response.json())
          .then(userData => {
+            console.log('user portfolio in fetch ', userData.portfolio)
             userData.error ?
                alert(userData.error)
                :
                dispatch(loginUser(userData))
+
+               // Check if user has a portfolio, add to store if so
+               const userHasPortfolio = userData.portfolio.id ? true : false;
+               if (userHasPortfolio) dispatch(addExistingPortfolio(userData.portfolio));
          })
          .catch(loginError => {
             alert(loginError.message)
