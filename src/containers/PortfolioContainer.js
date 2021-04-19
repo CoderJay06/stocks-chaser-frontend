@@ -13,6 +13,7 @@ class PortfolioContainer extends Component {
    render() {
       return (
          <div>
+            {console.log('user portfolio in PortfolioContainer ', this.props.user.portfolio)}
             {this.props.user.portfolio.id ?
                // should get users portfolio from the db and display it
                <Portfolio user={this.props.user} portfolio={this.props.portfolio} />

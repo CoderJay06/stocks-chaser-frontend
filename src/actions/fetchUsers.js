@@ -31,6 +31,7 @@ export function fetchLogin(user) {
 
                // Check if user has a portfolio, add to store if so
                const userHasPortfolio = userData.portfolio.id ? true : false;
+               console.log('user portfolio in fetch', userData.portfolio)
                if (userHasPortfolio) dispatch(addExistingPortfolio(userData.portfolio));
          })
          .catch(loginError => {

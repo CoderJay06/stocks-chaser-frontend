@@ -15,6 +15,7 @@ export default function portfolioReducer(state = initialState, action) {
             ...state
          }
       case "ADD_EXISTING_PORTFOLIO":
+         // debugger
          return {
             id: action.payload.id,
             user_id: action.payload.user_id,
