@@ -13,7 +13,7 @@ class PortfolioContainer extends Component {
    render() {
       return (
          <div>
-            {this.props.user.portfolio.id ?
+            {this.props.portfolio.id ?
                // should get users portfolio from the db and display it
                <Portfolio user={this.props.user} portfolio={this.props.portfolio} />
                :
