@@ -10,9 +10,14 @@ export const ViewStockChart = () => {
    }, [location]);
    
    return (
-      <div>
+      <div style={{
+         backgroundImage: "url(/images/logo.jpeg)", 
+         width: "1300px", 
+         height: "1300px", 
+         // height: "100%",
+      }}>
          <h1>{location.state.ticker}</h1>
-         {/* <Charts stockTickerSymbol={location.state.ticker} /> */}
+         <Charts stockTickerSymbol={location.state.ticker} />
       </div>
    )
 }
