@@ -6,8 +6,6 @@ const initialState = {
 export default function portfolioReducer(state = initialState, action) {
    switch (action.type) {
       case "ADD_PORTFOLIO":
-         console.log('state: ', state, '\naction:', action);
-
          return {
             id: action.payload.id,
             user_id: action.payload.user_id,
@@ -15,7 +13,6 @@ export default function portfolioReducer(state = initialState, action) {
             ...state
          }
       case "ADD_EXISTING_PORTFOLIO":
-         // debugger
          return {
             id: action.payload.id,
             user_id: action.payload.user_id,
@@ -29,9 +26,6 @@ export default function portfolioReducer(state = initialState, action) {
       case "REMOVE_PORTFOLIO":
          return initialState;
       case "ADD_STOCK":
-         // debugger
-         console.log('add_stock state and payload', 
-            state, action.payload)
          return {
             ...state,
             stock_quantity: state.stock_quantity + 1,
