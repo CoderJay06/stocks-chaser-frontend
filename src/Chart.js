@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 
 import { scaleTime } from "d3-scale";
 import { curveMonotoneX } from "d3-shape";
+import { format }from "d3-format";
 
 import { ChartCanvas, Chart } from "react-stockcharts";
 import { AreaSeries } from "react-stockcharts/lib/series";
@@ -11,23 +12,24 @@ import { fitWidth } from "react-stockcharts/lib/helper";
 import { createVerticalLinearGradient, hexToRGBA } from "react-stockcharts/lib/utils";
 
 const canvasGradient = createVerticalLinearGradient([
-	{ stop: 0, color: hexToRGBA("#b5d0ff", 0.2) },
-	{ stop: 0.7, color: hexToRGBA("#6fa4fc", 0.4) },
-	{ stop: 1, color: hexToRGBA("#4286f4", 0.8) },
+	{ stop: 0, color: hexToRGBA("#85bb65", 0.2) },
+	{ stop: 0.7, color: hexToRGBA("#68a047", 0.4) },
+	{ stop: 1, color: hexToRGBA("#add197", 0.8) },
 ]);
 
 class AreaChart extends React.Component {
 	render() {
-		const { data, type, width, ratio } = this.props;
+      console.log('props in chart ', this.props)
+		const { data, type, width, ratio, tickerSymbol } = this.props;
       console.log('data in Chart ', data)
 		return (
 			<ChartCanvas ratio={ratio} width={width} height={400}
 				margin={{ left: 50, right: 50, top: 10, bottom: 30 }}
-				seriesName="MSFT"
+				seriesName={tickerSymbol}
 				data={data} type={type}
 				xAccessor={d => d.date}
 				xScale={scaleTime()}
-				xExtents={[new Date(2020, 11, 17), new Date(2021, 4, 13)]}
+				xExtents={[new Date(data[0].date), new Date(data[99].date)]}
 			 >
 				<Chart id={0} yExtents={d => d.close}>
 					<defs>
@@ -37,8 +39,9 @@ class AreaChart extends React.Component {
 							<stop offset="100%"  stopColor="#4286f4" stopOpacity={0.8} />
 						</linearGradient>
 					</defs>
-					<XAxis axisAt="bottom" orient="bottom" ticks={6}/>
+					<XAxis axisAt="bottom" orient="bottom" ticks={25}/>
 					<YAxis axisAt="left" orient="left" />
+               <YAxis axisAt="right" orient="right" percentScale={true} tickFormat={format(".0%")}/>
 					<AreaSeries
 						yAccessor={d => d.close}
 						fill="url(#MyGradient)"
