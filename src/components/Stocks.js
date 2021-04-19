@@ -8,7 +8,7 @@ export const Stocks = (props) => {
    console.log('Stocks: ', stocks)
    const renderStocks = stocks.map(stock => {
       return (
-         <Stock key={stock.ticker} 
+         <Stock key={stock.id} 
                 stock={stock}
                 tickerSymbol={stock.ticker}
                 name={stock.name}
