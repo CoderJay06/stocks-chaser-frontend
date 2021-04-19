@@ -7,11 +7,10 @@ const Portfolio = ({ user, portfolio }) => {
          {portfolio.stocks.length > 0 ?
             portfolio.stocks.map(stock => {
                return (
-                  <Stock key={stock.Symbol} 
-                         stock={stock}
-                         tickerSymbol={stock.Symbol}
-                         name={stock.Name}
-                         pricePerShare={stock['50DayMovingAverage']} />
+                  <Stock key={stock.id} 
+                         tickerSymbol={stock.ticker}
+                         name={stock.name}
+                         pricePerShare={stock.price_per_share} />
                )
             }) : null}
       </div>

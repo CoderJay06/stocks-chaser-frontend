@@ -6,6 +6,13 @@ export const addPortfolio = portfolio => {
    }
 }
 
+export const addExistingPortfolio = portfolio => {
+   return {
+      type: "ADD_EXISTING_PORTFOLIO",
+      payload: portfolio
+   }
+}
+
 export const removePortfolio = () => {
    return {
       type: "REMOVE_PORTFOLIO"

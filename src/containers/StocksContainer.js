@@ -20,8 +20,7 @@ class StocksContainer extends Component {
                {this.props.loadingState === "loading" ?
                   "Loading stocks..." 
                   :
-                  <Stocks stocks={this.props.stocks} 
-                          addStock={this.props.dispatchAddStock} />} 
+                  <Stocks stocks={this.props.stocks} />}
             </div>
          )
    }
@@ -38,7 +37,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
    return {
       dispatchFetchStocks: () => dispatch(fetchStocks()),
-      dispatchAddStock: stock => dispatch(addStock(stock)) // need to pass down to make available to child
+      // dispatchAddStock: stock => dispatch(addStock(stock)) // need to pass down to make available to child
    }
 }
 

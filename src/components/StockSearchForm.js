@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Stock } from '../components/Stock';
 import { connect } from 'react-redux';
-import { addStock } from '../actions/portfolio';
+import { fetchPortfolioStocks } from '../actions/fetchPortfolios';
 
 class StockSearchForm extends Component {
    _APIKEY = process.env.REACT_APP_STOCKS_API_KEY;
@@ -39,7 +39,12 @@ class StockSearchForm extends Component {
 
    render() {
       return (
-         <div>
+         <div style={{
+               backgroundImage: "url(/images/logo.jpeg)", 
+               width: "1300px", 
+               height: "1300px", 
+               // height: "100%",
+            }}>
             <form onSubmit={this.handleOnSubmit}
                   className="max-w-6xl w-2/4 mx-auto mt-16 shadow-lg 
                   hover:bg-green-400 hover:bg-opacity-25 px-4 py-6">
@@ -59,11 +64,12 @@ class StockSearchForm extends Component {
             {/* render user searched stock */}
             {this.state.searchResults.Symbol ?
                <Stock key={this.state.searchResults.id} 
-                      stock={this.state.searchResults}
+                     //  id={this.state.searchResults.id}
                       tickerSymbol={this.state.searchResults.Symbol}
                       name={this.state.searchResults.Name}
                       pricePerShare={this.state.searchResults['50DayMovingAverage']}
-                      addStock={this.props.dispatchAddStock}
+                      fetchPortfolioStocks={this.props.dispatchFetchPortfolioStocks}
+                      portfolio={this.props.portfolio}
                       isSearchedStock={true} />
                : null 
             }
@@ -72,10 +78,18 @@ class StockSearchForm extends Component {
    }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapStateToProps = state => {
    return {
-      dispatchAddStock: stock => dispatch(addStock(stock))
+      portfolio: state.portfolio
    }
 }
 
-export default connect(null, mapDispatchToProps)(StockSearchForm)
+
+const mapDispatchToProps = dispatch => {
+   return {
+      dispatchFetchPortfolioStocks: (portfolio, stock) => 
+         dispatch(fetchPortfolioStocks(portfolio, stock))
+   }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(StockSearchForm)

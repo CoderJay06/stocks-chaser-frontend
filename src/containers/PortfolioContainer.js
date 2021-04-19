@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Portfolio from '../components/Portfolio';
 import { fetchPortfolios } from '../actions/fetchPortfolios';
+import { addPortfolio } from '../actions/portfolio';
 
 class PortfolioContainer extends Component {
    handleOnClick = () => {
@@ -12,7 +13,8 @@ class PortfolioContainer extends Component {
    render() {
       return (
          <div>
-            {this.props.portfolio.id ?
+            {this.props.user.portfolio.id ?
+               // should get users portfolio from the db and display it
                <Portfolio user={this.props.user} portfolio={this.props.portfolio} />
                :
                <button 
@@ -35,7 +37,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
    return {
-      dispatchFetchPortfolios: user => dispatch(fetchPortfolios(user))
+      dispatchFetchPortfolios: user => dispatch(fetchPortfolios(user)),
+      dispatchAddPortfolio: portfolio => dispatch(addPortfolio(portfolio))
    }
 }
 
