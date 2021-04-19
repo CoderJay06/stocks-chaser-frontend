@@ -4,15 +4,15 @@ import { Stock } from '../components/Stock';
 // stateless functional component for rendering Stocks from db
 export const Stocks = (props) => {
    const { stocks } = props;
+   console.log('props stocks', props)
    console.log('Stocks: ', stocks)
    const renderStocks = stocks.map(stock => {
       return (
-         <Stock key={stock.id} 
+         <Stock key={stock.ticker} 
                 stock={stock}
                 tickerSymbol={stock.ticker}
                 name={stock.name}
                 pricePerShare={stock.price_per_share}
-                addStock={props.addStock}
           />
       )
    });

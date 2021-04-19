@@ -6,7 +6,8 @@ export const Stock = ({
    tickerSymbol, 
    name, 
    pricePerShare, 
-   addStock, 
+   fetchPortfolioStocks,
+   portfolio,
    isSearchedStock
 }) => {
    const history = useHistory();
@@ -21,13 +22,18 @@ export const Stock = ({
 
    const handleAddOnClick = () => {
       // handle adding stock to users portfolio
+      // TODO:
+      // id is undefined when searched stock
+      // where going to need to add it to backend stocks db
+      // to create a new id beforehand ?
       const stock = {
          ticker: tickerSymbol,
          name: name,
-         price_per_share: pricePerShare
+         price_per_share: Number(pricePerShare)
       };
-      
-      addStock(stock)
+      // debugger
+      // TODO: need to save stocks to user portfolio on backend when adding
+      fetchPortfolioStocks(portfolio, stock);
       history.push({
          pathname: "/profile"
       });
@@ -56,11 +62,5 @@ export const Stock = ({
    )
 }
 
-const mapStateToProps = state => {
-   return {
-      portfolio: state.portfolio
-   }
-}
-
-export default connect(mapStateToProps, null)(Stock);
+export default Stock;
 

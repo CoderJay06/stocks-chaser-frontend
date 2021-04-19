@@ -28,6 +28,9 @@ export default function portfolioReducer(state = initialState, action) {
       case "REMOVE_PORTFOLIO":
          return initialState;
       case "ADD_STOCK":
+         // debugger
+         console.log('add_stock state and payload', 
+            state, action.payload)
          return {
             ...state,
             stock_quantity: state.stock_quantity + 1,
