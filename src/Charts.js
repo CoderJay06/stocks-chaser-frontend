@@ -23,7 +23,9 @@ class Charts extends React.Component {
         }
         return (
             <TypeChooser>
-                {type => <Chart type={type} data={this.state.data} />}
+                {type => <Chart type={type} 
+                                data={this.state.data}
+                                tickerSymbol={this.props.stockTickerSymbol} />}
             </TypeChooser>
         )
     }

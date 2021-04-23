@@ -33,7 +33,9 @@ export const Stock = ({
       };
       // debugger
       // TODO: need to save stocks to user portfolio on backend when adding
+      console.log('a')
       fetchPortfolioStocks(portfolio, stock);
+      console.log('g')
       history.push({
          pathname: "/profile"
       });

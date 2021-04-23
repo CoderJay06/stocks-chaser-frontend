@@ -42,8 +42,9 @@ class StockSearchForm extends Component {
          <div style={{
                backgroundImage: "url(/images/logo.jpeg)", 
                width: "1300px", 
-               height: "1300px", 
+               height: "1300px"
                // height: "100%",
+               // backgroundSize: "auto auto"
             }}>
             <form onSubmit={this.handleOnSubmit}
                   className="max-w-6xl w-2/4 mx-auto mt-16 shadow-lg 
