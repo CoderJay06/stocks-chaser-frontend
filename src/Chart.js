@@ -39,7 +39,7 @@ class AreaChart extends React.Component {
 							<stop offset="100%"  stopColor="#4286f4" stopOpacity={0.8} />
 						</linearGradient>
 					</defs>
-					<XAxis axisAt="bottom" orient="bottom" ticks={25}/>
+					<XAxis axisAt="bottom" orient="bottom" ticks={6}/>
 					<YAxis axisAt="left" orient="left" />
                <YAxis axisAt="right" orient="right" percentScale={true} tickFormat={format(".0%")}/>
 					<AreaSeries

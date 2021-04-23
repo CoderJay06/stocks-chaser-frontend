@@ -3,8 +3,7 @@ import PortfolioContainer from "../containers/PortfolioContainer";
 
 const UserProfile = ({ username }) => {
    return (
-      <div className="max-w-6xl w-2/4 mx-auto mt-16 shadow-lg text-green-100 
-         hover:bg-green-500 hover:bg-opacity-75 px-4 py-6">
+      <div>
          <h1>{username}'s Profile</h1>
          <br />
          <PortfolioContainer />
