@@ -1,7 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-const NavLinks = () => {
+const NavLinks = ({status, user}) => {
    return (
       <nav className="text-center bg-blue-500 text-green-100 p-4">
          <NavLink
@@ -24,11 +25,14 @@ const NavLinks = () => {
             exact to="/login">
             Login
          </NavLink>
-         <NavLink
-            className="inline-block px-4 py-2"
-            exact to="/profile">
-            Profile
-         </NavLink>
+         {console.log(status)}
+         {status === "loggedIn" ?
+            <NavLink
+               className="inline-block px-4 py-2"
+               exact to={`/profile/${user.id}`}>
+               Profile
+            </NavLink> : null
+         }
          <NavLink
             className="inline-block px-4 py-2"
             exact to="/">
@@ -38,4 +42,11 @@ const NavLinks = () => {
    )
 }
 
-export default NavLinks;
+const mapStateToProps = state => {
+   return {
+      status: state.login.status,
+      user: state.login.user      
+   }
+}
+
+export default connect(mapStateToProps)(NavLinks);

@@ -41,7 +41,7 @@ class SignupForm extends Component {
       return (
          // redirect to profile if already signed up, otherwise render form        
          this.props.status === "loggedIn" ?
-            <Redirect to="/profile">
+            <Redirect to={`/profile/${this.props.currentUser.id}`}>
                <UserProfileContainer />
             </Redirect>
             :
@@ -92,7 +92,8 @@ class SignupForm extends Component {
 
 const mapStateToProps = state => {
    return {
-      status: state.login.status
+      status: state.login.status,
+      currentUser: state.login.user
    }
 }
 

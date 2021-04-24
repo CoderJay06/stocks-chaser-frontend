@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 
 export const Stock = ({
    stock,
+   currentUser,
    tickerSymbol, 
    name, 
    pricePerShare, 
@@ -40,7 +41,7 @@ export const Stock = ({
       fetchPortfolioStocks(portfolio, stock);
       console.log('g')
       history.push({
-         pathname: "/profile"
+         pathname: `/profile/${currentUser.id}`
       });
    }
 

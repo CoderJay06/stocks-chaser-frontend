@@ -19,7 +19,7 @@ export const Routes = () => {
          <Route path="/login">
             <LoginForm />
          </Route>  
-         <Route path="/profile">
+         <Route path="/profile/:id">
             <UserProfileContainer />
          </Route>    
          <Route path="/stocks/:ticker/stock-chart">
