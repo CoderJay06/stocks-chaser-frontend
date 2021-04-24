@@ -10,14 +10,9 @@ import {
  } from "react-router-dom";
 
 export const Routes = () => {
+
    return (
       <>
-         <Route path="/stocks">
-            <StocksContainer />
-         </Route> 
-         <Route path="/search">
-            <StockSearchForm />
-         </Route>  
          <Route path="/signup">
             <SignupForm />
          </Route>   
@@ -26,10 +21,16 @@ export const Routes = () => {
          </Route>  
          <Route path="/profile">
             <UserProfileContainer />
-         </Route>  
-         <Route path="/stock-chart">
-            <ViewStockChart />
          </Route>    
+         <Route path="/stocks/:ticker/stock-chart">
+            <ViewStockChart />
+         </Route>  
+         <Route path="/stocks">
+            <StocksContainer />
+         </Route> 
+         <Route path="/search">
+            <StockSearchForm />
+         </Route>  
          <Route exact path="/">
             {/* <Home /> */}
          </Route>   

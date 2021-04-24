@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 export const Stock = ({
+   stock,
    tickerSymbol, 
    name, 
    pricePerShare, 
@@ -14,8 +15,10 @@ export const Stock = ({
 
    const handleViewOnClick = () => {
       // will render selected stock view page
+      console.log('stock ', stock)
+   
       history.push({
-         pathname: "/stock-chart",
+         pathname: `/stocks/${tickerSymbol}/stock-chart`,
          state: { ticker: tickerSymbol }
       });
    }
