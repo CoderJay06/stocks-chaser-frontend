@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 export const Stock = ({
+   stock,
+   currentUser,
    tickerSymbol, 
    name, 
    pricePerShare, 
@@ -14,8 +16,10 @@ export const Stock = ({
 
    const handleViewOnClick = () => {
       // will render selected stock view page
+      console.log('stock ', stock)
+   
       history.push({
-         pathname: "/stock-chart",
+         pathname: `/stocks/${tickerSymbol}/chart`,
          state: { ticker: tickerSymbol }
       });
    }
@@ -37,7 +41,7 @@ export const Stock = ({
       fetchPortfolioStocks(portfolio, stock);
       console.log('g')
       history.push({
-         pathname: "/profile"
+         pathname: `/profile/${currentUser.id}`
       });
    }
 

@@ -39,7 +39,7 @@ class LoginForm extends Component {
       return (    
          // when logged in redirect to user profile, otherwise render form  
          this.props.status === "loggedIn" ?
-            <Redirect to="/profile">
+            <Redirect to={`/profile/${this.props.currentUser.id}`}>
                <UserProfileContainer />
             </Redirect>
             :
@@ -79,7 +79,7 @@ class LoginForm extends Component {
 const mapStateToProps = state => {
    return {
       status: state.login.status,
-      current: state.login.user
+      currentUser: state.login.user
    }
 }
 

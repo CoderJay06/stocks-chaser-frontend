@@ -66,6 +66,7 @@ class StockSearchForm extends Component {
             {this.state.searchResults.Symbol ?
                <Stock key={this.state.searchResults.id} 
                      //  id={this.state.searchResults.id}
+                      currentUser={this.props.user}
                       tickerSymbol={this.state.searchResults.Symbol}
                       name={this.state.searchResults.Name}
                       pricePerShare={this.state.searchResults['50DayMovingAverage']}
@@ -81,7 +82,8 @@ class StockSearchForm extends Component {
 
 const mapStateToProps = state => {
    return {
-      portfolio: state.portfolio
+      portfolio: state.portfolio,
+      user: state.login.user
    }
 }
 
