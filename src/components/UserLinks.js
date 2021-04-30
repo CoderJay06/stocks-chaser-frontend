@@ -14,11 +14,11 @@ const UserLinks = ({status, user, logoutUser, removePortfolio}) => {
                   exact to={`/profile/${user.id}`}>
                   Profile
                </NavLink> 
+
                <NavLink
                   className="inline-block px-4 py-2"
                   exact to="/logout"
                   onClick={() => {
-                     console.log('clicked')
                      logoutUser(user)
                      removePortfolio()
                   }}>

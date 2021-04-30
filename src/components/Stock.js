@@ -19,7 +19,7 @@ export const Stock = ({
       console.log('stock ', stock)
    
       history.push({
-         pathname: `/stocks/${tickerSymbol}/stock-chart`,
+         pathname: `/stocks/${tickerSymbol}/chart`,
          state: { ticker: tickerSymbol }
       });
    }
