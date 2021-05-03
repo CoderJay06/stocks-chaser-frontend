@@ -10,13 +10,15 @@ const UserLinks = ({status, user, logoutUser, removePortfolio}) => {
          {status === "loggedIn" ?
             <>
                <NavLink
-                  className="inline-block px-4 py-2"
+                  className="inline-block hover:bg-green-300 
+                     hover:bg-opacity-25 rounded-lg px-4 py-2"
                   exact to={`/profile/${user.id}`}>
                   Profile
                </NavLink> 
 
                <NavLink
-                  className="inline-block px-4 py-2"
+                  className="inline-block hover:bg-green-300 
+                  hover:bg-opacity-25 rounded-lg px-4 py-2"
                   exact to="/logout"
                   onClick={() => {
                      logoutUser(user)
@@ -28,13 +30,15 @@ const UserLinks = ({status, user, logoutUser, removePortfolio}) => {
             :
             <>
                <NavLink
-                  className="inline-block px-4 py-2"
+                  className="inline-block hover:bg-green-300 
+                  hover:bg-opacity-25 rounded-lg px-4 py-2"
                   exact to="/signup">
                   Signup
                </NavLink>
                
                <NavLink
-                  className="inline-block px-4 py-2"
+                  className="inline-block hover:bg-green-300 
+                  hover:bg-opacity-25 rounded-lg px-4 py-2"
                   exact to="/login">
                   Login
                </NavLink> 

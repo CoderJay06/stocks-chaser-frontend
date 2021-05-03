@@ -1,8 +1,9 @@
 
 export const logo = {
       backgroundImage: "url(/images/logo.jpeg)", 
-      width: "110%", 
-      // height: "2000px", 
+      width: "auto", 
+
+      height: "auto", 
       // height: "100%",
       backgroundSize: "fit"
 };

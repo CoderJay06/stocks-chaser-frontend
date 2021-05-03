@@ -5,6 +5,7 @@ import ViewStockChart from '../components/ViewStockChart';
 import SignupForm from '../components/SignupForm';
 import LoginForm from '../components/LoginForm';
 import UserProfileContainer from '../containers/UserProfileContainer';
+import Home from '../components/Home';
 import {
    Route
  } from "react-router-dom";
@@ -33,7 +34,7 @@ export const Routes = () => {
             <StockSearchForm />
          </Route>  
          <Route exact path="/">
-            {/* <Home /> */}
+            <Home />
          </Route>   
       </>     
    )
