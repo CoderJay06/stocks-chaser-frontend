@@ -1,11 +1,10 @@
 
 export const logo = {
       backgroundImage: "url(/images/logo.jpeg)", 
-      width: "auto", 
-
-      height: "auto", 
-      // height: "100%",
-      backgroundSize: "fit"
+      height: "100vh",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover"
 };
 
 export default logo;

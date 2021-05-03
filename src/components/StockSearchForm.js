@@ -39,19 +39,13 @@ class StockSearchForm extends Component {
 
    render() {
       return (
-         <div style={{
-               backgroundImage: "url(/images/logo.jpeg)", 
-               width: "1300px", 
-               height: "1300px"
-               // height: "100%",
-               // backgroundSize: "auto auto"
-            }}>
+         <div>
             <form onSubmit={this.handleOnSubmit}
                   className="max-w-6xl w-2/4 mx-auto mt-16 rounded-lg shadow-lg 
                   hover:bg-green-400 hover:bg-opacity-25 px-4 py-6">
                <label>Search a Stock</label>
                <input type="text" 
-                      className="w-full border p-4 my-4"
+                      className="w-full border hover:bg-blue-400 p-4 my-4"
                       onChange={this.handleOnChange} 
                       value={this.state.searchInput}
                       placeholder="Enter ticker symbol" />
