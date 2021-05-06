@@ -2,17 +2,24 @@ import React, { Component } from 'react';
 import UserProfile from '../components/UserProfile';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { logo } from '../styles/Logo';
 
 class UserProfileContainer extends Component {
    render() {
       return (
-         <div className="max-w-6xl w-3/4 mx-auto mt-16 shadow-lg text-green-100 
-            rounded-lg hover:bg-green-400 hover:bg-opacity-25 px-4 py-6">
-            {this.props.status === "loggedIn" ? 
-               <UserProfile username={this.props.currentUser.username} /> 
-               :
-               <Redirect to="/" /> // send to homepage if not logged in
-            }
+         <div style={{
+                backgroundImage: logo.backgroundImage,
+                height: "auto",
+                backgroundPosition: "center",
+                backgroundRepeat: "repeat-y",
+                backgroundSize: "flex"}}>
+         
+               {this.props.status === "loggedIn" ? 
+                  <UserProfile username={this.props.currentUser.username} /> 
+                  :
+                  <Redirect to="/" /> // send to homepage if not logged in
+               }
+
          </div>
       )
    }
