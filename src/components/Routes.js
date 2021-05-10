@@ -24,10 +24,13 @@ export const Routes = () => {
          <Route path="/profile/:id">
             <UserProfileContainer />
          </Route>    
-         <Route path="/stocks/:ticker/chart">
+         {/* <Route path="/stocks/:ticker/chart">
+            <ViewStockChart />
+         </Route>   */}
+         <Route exact path="/stocks/:ticker/chart">
             <ViewStockChart />
          </Route>  
-         <Route path="/stocks">
+         <Route exact path="/stocks">
             <StocksContainer />
          </Route> 
          <Route path="/search">
