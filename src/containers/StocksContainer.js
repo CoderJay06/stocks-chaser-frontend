@@ -3,6 +3,7 @@ import { Stocks } from '../components/Stocks';
 import { connect } from 'react-redux';
 import { fetchStocks } from '../actions/fetchStocks';
 import { addStock } from '../actions/portfolio';
+import { logo } from '../styles/Logo';
 
 class StocksContainer extends Component {
    componentDidMount() {
@@ -14,7 +15,12 @@ class StocksContainer extends Component {
          if (this.props.loadingState === "notLoading") return null;
 
          return (
-            <div>
+            <div style={{
+                  backgroundImage: logo.backgroundImage,
+                  height: "auto",
+                  backgroundPosition: "center",
+                  backgroundRepeat: "repeat-y",
+                  backgroundSize: "flex"}}>
                <br />
                {/* render stocks once loading is successfull */}
                {this.props.loadingState === "loading" ?
