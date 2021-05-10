@@ -2,17 +2,11 @@ import React, { Component } from 'react';
 import UserProfile from '../components/UserProfile';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { logo } from '../styles/Logo';
 
 class UserProfileContainer extends Component {
    render() {
       return (
-         <div style={{
-                backgroundImage: logo.backgroundImage,
-                height: "auto",
-                backgroundPosition: "center",
-                backgroundRepeat: "repeat-y",
-                backgroundSize: "flex"}}>
+         <div>
          
                {this.props.status === "loggedIn" ? 
                   <UserProfile username={this.props.currentUser.username} /> 
