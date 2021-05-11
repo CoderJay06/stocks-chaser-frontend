@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Stocks } from '../components/Stocks';
 import { connect } from 'react-redux';
 import { fetchStocks } from '../actions/fetchStocks';
-import { addStock } from '../actions/portfolio';
-import { logo } from '../styles/Logo';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 
@@ -26,7 +24,6 @@ class StocksContainer extends Component {
                      color="#00BFFF"
                      height={80}
                      width={80}
-                     // timeout={3000} //3 secs
                   />
                   :
                   <Stocks stocks={this.props.stocks} />}
@@ -35,7 +32,6 @@ class StocksContainer extends Component {
    }
 };
 
-// map state and dispatch to props
 const mapStateToProps = state => {
    return {
       stocks: state.stocks.all,
@@ -45,8 +41,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
    return {
-      dispatchFetchStocks: () => dispatch(fetchStocks()),
-      // dispatchAddStock: stock => dispatch(addStock(stock)) // need to pass down to make available to child
+      dispatchFetchStocks: () => dispatch(fetchStocks())
    }
 }
 
