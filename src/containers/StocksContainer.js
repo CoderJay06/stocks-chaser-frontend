@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Stocks } from '../components/Stocks';
 import { connect } from 'react-redux';
 import { fetchStocks } from '../actions/fetchStocks';
-import { addStock } from '../actions/portfolio';
-import { logo } from '../styles/Logo';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from "react-loader-spinner";
 
 class StocksContainer extends Component {
    componentDidMount() {
@@ -15,16 +15,16 @@ class StocksContainer extends Component {
          if (this.props.loadingState === "notLoading") return null;
 
          return (
-            <div style={{
-                  backgroundImage: logo.backgroundImage,
-                  height: "auto",
-                  backgroundPosition: "center",
-                  backgroundRepeat: "repeat-y",
-                  backgroundSize: "flex"}}>
+            <div>
                <br />
                {/* render stocks once loading is successfull */}
                {this.props.loadingState === "loading" ?
-                  "Loading stocks..." 
+                  <Loader
+                     type="Watch"
+                     color="#00BFFF"
+                     height={80}
+                     width={80}
+                  />
                   :
                   <Stocks stocks={this.props.stocks} />}
             </div>
@@ -32,7 +32,6 @@ class StocksContainer extends Component {
    }
 };
 
-// map state and dispatch to props
 const mapStateToProps = state => {
    return {
       stocks: state.stocks.all,
@@ -42,8 +41,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
    return {
-      dispatchFetchStocks: () => dispatch(fetchStocks()),
-      // dispatchAddStock: stock => dispatch(addStock(stock)) // need to pass down to make available to child
+      dispatchFetchStocks: () => dispatch(fetchStocks())
    }
 }
 
