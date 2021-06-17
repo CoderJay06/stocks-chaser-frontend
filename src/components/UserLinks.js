@@ -4,21 +4,19 @@ import { NavLink } from 'react-router-dom';
 import { logoutUser } from '../actions/users';
 import { removePortfolio } from '../actions/portfolio';
 
-const UserLinks = ({status, user, logoutUser, removePortfolio}) => {
+const UserLinks = ({status, user, logoutUser, removePortfolio, linkStyles}) => {
    return (
       <>
          {status === "loggedIn" ?
             <>
                <NavLink
-                  className="inline-block hover:bg-green-300 
-                     hover:bg-opacity-25 rounded-lg px-4 py-2"
+                  className={linkStyles}
                   exact to={`/profile/${user.id}`}>
                   Profile
                </NavLink> 
 
                <NavLink
-                  className="inline-block hover:bg-green-300 
-                  hover:bg-opacity-25 rounded-lg px-4 py-2"
+                  className={linkStyles}
                   exact to="/logout"
                   onClick={() => {
                      logoutUser(user)
@@ -30,15 +28,13 @@ const UserLinks = ({status, user, logoutUser, removePortfolio}) => {
             :
             <>
                <NavLink
-                  className="inline-block hover:bg-green-300 
-                  hover:bg-opacity-25 rounded-lg px-4 py-2"
+                  className={linkStyles}
                   exact to="/signup">
                   Signup
                </NavLink>
                
                <NavLink
-                  className="inline-block hover:bg-green-300 
-                  hover:bg-opacity-25 rounded-lg px-4 py-2"
+                  className={linkStyles}
                   exact to="/login">
                   Login
                </NavLink> 
