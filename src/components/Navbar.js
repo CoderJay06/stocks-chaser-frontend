@@ -13,10 +13,18 @@ import {
       setHamburgerClicked(prevState => !prevState)
    }
 
-   const desktopStyles = "text-center md:space-x-14 font-serif md:text-lg bg-blue-500 p-4 text-green-100 hidden sm:block"
-   const mobileStyles = "flex flex-col items-center font-serif  space-y-10 text:lg h-screen bg-blue-500 text-green-100 p-4 sm:hidden"
-   const desktopLinkStyles = "inline-block hover:bg-green-300 hover:bg-opacity-25 rounded-lg px-4 py-2"
-   const mobileLinkStyles = "inline-block hover:bg-green-300 hover:bg-opacity-25 rounded-lg px-4 py-8"
+   // const desktopStyles = "text-center md:space-x-14 font-serif md:text-lg bg-blue-500 p-4 text-green-100 hidden sm:block"
+   // const mobileStyles = "flex flex-col items-center font-serif  space-y-10 text:lg h-screen bg-blue-500 text-green-100 p-4 sm:hidden"
+   // const desktopLinkStyles = "inline-block hover:bg-green-300 hover:bg-opacity-25 rounded-lg px-4 py-2"
+   // const mobileLinkStyles = "inline-block hover:bg-green-300 hover:bg-opacity-25 rounded-lg px-4 py-8"
+   const styles = {
+      desktop: "text-center md:space-x-14 font-serif md:text-lg bg-blue-500 p-4 text-green-100 hidden sm:block",
+      mobile: "flex flex-col items-center font-serif  space-y-6 text:lg h-screen bg-blue-500 text-green-100 p-4 sm:hidden",
+      desktopLinks: "inline-block hover:bg-green-300 hover:bg-opacity-25 rounded-lg px-4 py-2",
+      mobileLinks: "inline-block hover:bg-green-300 hover:bg-opacity-25 rounded-lg px-4 py-8",
+   }
+   const {desktop, mobile, desktopLinks, mobileLinks} = styles
+
    return (
       <Router>
          <button className="ham-wrapper ham-stack flex flex-col sm:flex-row w-full justify-between items-center px-4 sm:px-6 py-6 sm:hidden" onClick={handleClick}>
@@ -27,10 +35,10 @@ import {
             </div>
          </button>
          <div className={`lg:flex ${  hamburgerClicked ? "block" : "hidden" } `}>
-               <NavLinks styles={mobileStyles} linkStyles={mobileLinkStyles} />
+               <NavLinks styles={mobile} linkStyles={mobileLinks} />
          </div>
          <div>
-            <NavLinks styles={desktopStyles} linkStyles={desktopLinkStyles} />
+            <NavLinks styles={desktop} linkStyles={desktopLinks} />
          </div>
          <Switch>
             <Routes />    
