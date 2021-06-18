@@ -1,3 +1,52 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* component styles to add: 
+  forms: bg-green-600 bg-opacity-75 hover:bg-green-500 hover:bg-opacity-80
+  other: rounded-lg bg-green-800 bg-opacity-80 hover:bg-green-600 hover:bg-opacity-75 text-white-200
+ */
+label {
+    font-family: "font-serif";
+    font-weight: 600;
+    font-size: xx-large;
+    color: #eaf3ee;
+    font-variant: historical-ligatures;
+    font-style: oblique;
+}
+
+input {
+    margin-bottom: 25px;
+    font-family: "font-serif";
+    font-weight: 500;
+    font-size: x-large;
+    color: #eaf3ee;
+    font-style: oblique;
+}
+
+button {
+    font-family: "font-serif";
+    font-weight: 500;
+    font-size: x-large;
+    color: #eaf3ee;
+    font-style: oblique;
+}
+
+h1, h2, h3, h4 {
+    font-family: "font-serif";
+    font-weight: 600;
+    font-size: xx-large;
+    color: #eaf3ee;
+    font-variant: historical-ligatures;
+    font-style: oblique;
+}
+
+p {
+    font-family: "font-serif";
+    font-weight: 600;
+    font-size: x-large;
+    color: #eaf3ee;
+    font-variant: historical-ligatures;
+    font-style: oblique;
+}
