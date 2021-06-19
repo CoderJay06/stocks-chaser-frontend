@@ -46,8 +46,8 @@ class SignupForm extends Component {
             </Redirect>
             :
             <div>
-               <form className="max-w-6xl w-2/4 mx-auto mt-16 rounded-lg shadow-lg 
-                  hover:bg-green-400 hover:bg-opacity-25 px-4 py-6"
+               <form className="max-w-6xl w-2/4 mx-auto mt-16 rounded-lg shadow-2xl bg-green-600 
+                  bg-opacity-75 hover:bg-green-700 hover:bg-opacity-80 px-4 py-6"
                      onSubmit={this.handleOnSubmit}>
                   <label htmlFor="email">Email</label>
                   <input name="email" 
@@ -78,7 +78,7 @@ class SignupForm extends Component {
                   <br />
                   <input type="submit"
                          value="Signup"
-                         className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-400 
+                         className="w-full p-4 bg-blue-500 mt-4 hover:bg-blue-700 shadow-xl 
                            transition-all duration-200" />
                </form>
             </div>

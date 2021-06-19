@@ -41,8 +41,8 @@ class StockSearchForm extends Component {
       return (
          <div>
             <form onSubmit={this.handleOnSubmit}
-                  className="max-w-6xl w-2/4 mx-auto mt-16 rounded-lg shadow-lg 
-                  hover:bg-green-400 hover:bg-opacity-25 px-4 py-6">
+                  className="max-w-6xl w-2/4 mx-auto mt-16 rounded-lg shadow-2xl bg-green-600 
+                     bg-opacity-75 hover:bg-green-700 hover:bg-opacity-80 px-4 py-6">
                <label>Search a Stock</label>
                <input type="text" 
                       className="w-full border hover:bg-blue-400 p-4 my-4"
@@ -51,7 +51,7 @@ class StockSearchForm extends Component {
                       placeholder="Enter ticker symbol" />
                <br />
                <input type="submit" 
-                      className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-400 
+                      className="w-full p-4 bg-blue-500 mt-4 hover:bg-blue-700 
                         transition-all duration-200"
                       value="Search" />
             </form>
