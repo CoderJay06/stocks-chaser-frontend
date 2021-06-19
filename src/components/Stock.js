@@ -46,20 +46,20 @@ export const Stock = ({
    }
 
    return (
-      <div className="max-w-6xl w-2/4 mx-auto mt-16 rounded-lg shadow-lg 
-         hover:bg-green-300 hover:bg-opacity-75 px-4 py-6">
+      <div className="max-w-6xl w-2/4 mx-auto mt-16 rounded-lg shadow-2xl bg-green-700 bg-opacity-80 
+         hover:bg-green-900 hover:bg-opacity-75 text-white-200 px-4 py-6">
          <h4>Stock</h4>
          <p>Ticker: {tickerSymbol}</p>
          <p>Name: {name}</p>
          <p>Share Price: ${pricePerShare}</p>
          <button onClick={handleViewOnClick}
-                 className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-400 
+                 className="w-full p-4 bg-blue-500 mt-4 hover:bg-blue-700 
                   transition-all duration-200">View</button>
          {
          // we only want to show this button for stocks that can be added to portfolio 
          isSearchedStock ?
             <button onClick={handleAddOnClick}
-                    className="w-full p-4 bg-blue-300 mt-4 hover:bg-blue-400 
+                    className="w-full p-4 bg-blue-500 mt-4 hover:bg-blue-700 
                      transition-all duration-200">Add</button>
             : null
          }

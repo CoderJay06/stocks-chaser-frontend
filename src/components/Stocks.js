@@ -18,8 +18,8 @@ export const Stocks = (props) => {
    });
 
    return (
-      <div className="max-w-6xl w-3/4 mx-auto mt-8 shadow-2xl rounded-lg
-         hover:bg-green-400 hover:bg-opacity-25 text-black-100 px-4 py-6">
+      <div className="max-w-6xl w-3/4 mx-auto mt-8 rounded-lg bg-green-600 shadow-2xl
+      bg-opacity-75 hover:bg-green-700 hover:bg-opacity-80 text-white-200 px-4 py-6">
          <h2>Stocks</h2>
          {renderStocks}
       </div>

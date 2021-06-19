@@ -43,8 +43,8 @@ class PortfolioContainer extends Component {
 
    render() {
       return (
-         <div className="max-w-6xl w-3/4 mx-auto mt-16 shadow-lg text-green-100 
-         rounded-lg hover:bg-green-400 hover:bg-opacity-25 px-4 py-6">
+         <div className="max-w-6xl w-3/4 text-center mx-auto mt-16 shadow-2xl text-green-100 
+         rounded-lg bg-green-600 bg-opacity-75 hover:bg-green-700 hover:bg-opacity-80 px-4 py-6">
             {this.props.portfolio.id ?
                // should get users portfolio from the db and display it
                (
@@ -52,7 +52,8 @@ class PortfolioContainer extends Component {
                      {/* {this.state.searchInput}
                      {this.renderSearchResults} */}
                      <input 
-                            className="text-black"
+                        className="w-half p-3 bg-blue-500 mt-4 hover:bg-blue-700 
+                        transition-all duration-200"
                             type="text" 
                             onChange={this.handleOnChange} 
                             value={this.state.searchInput}
