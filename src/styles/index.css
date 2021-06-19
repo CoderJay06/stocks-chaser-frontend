@@ -16,12 +16,23 @@ label {
     font-style: oblique;
 }
 
-input {
+input[type=text], 
+input[type=email], 
+input[type=password] {
+    margin-bottom: 25px;
+    font-family: "font-serif";
+    font-weight: 300;
+    font-size: large;
+    color: #1a462e;
+    font-style: oblique;
+}
+
+input[type=submit] {
     margin-bottom: 25px;
     font-family: "font-serif";
     font-weight: 500;
     font-size: x-large;
-    color: #1a462e;
+    color: #eaf3ee;
     font-style: oblique;
 }
 
