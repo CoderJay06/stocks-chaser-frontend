@@ -1,9 +1,9 @@
 import Stock from '../components/Stock';
 
-const Portfolio = ({ user, renderedSearchResults }) => {
+const Portfolio = ({ renderedSearchResults }) => {
    return (
       <div>
-         <h2 className="text-center">{user.username}'s Portfolio</h2>
+         <h2 className="text-center">Your Portfolio</h2>
             {renderedSearchResults.map(stock => {
                return <Stock key={stock.id} 
                              tickerSymbol={stock.ticker}

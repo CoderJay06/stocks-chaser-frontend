@@ -1,12 +1,11 @@
-import LogoutContainer from "../containers/LogoutContainer"
 import PortfolioContainer from "../containers/PortfolioContainer";
 
 const UserProfile = ({ username }) => {
    return (
       <div>
          <br />
+         <h1>Welcome, {username}</h1>
          <PortfolioContainer />
-         <LogoutContainer />
       </div>
    )
 };

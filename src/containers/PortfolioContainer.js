@@ -46,7 +46,6 @@ class PortfolioContainer extends Component {
                         placeholder="Search your stocks" />
 
                      <Portfolio 
-                        user={this.props.user} 
                         portfolio={this.props.portfolio}
                         renderedSearchResults={this.renderSearchResults()} />
                   </>
