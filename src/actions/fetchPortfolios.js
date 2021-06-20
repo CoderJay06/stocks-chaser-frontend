@@ -1,6 +1,6 @@
-// actions to handle portfolio requests to the backend
 import { addPortfolio, addStock } from '../actions/portfolio';
 
+// actions to handle portfolio requests to the backend
 export function fetchPortfolios(user) {
    return (dispatch) => {
       // post to backend, add new portfolio to the db
@@ -32,9 +32,7 @@ export function fetchPortfolios(user) {
 } 
 
 export function fetchPortfolioStocks(portfolio, stock) { 
-   console.log('b')
    return (dispatch) => {
-      console.log('c')
       const portfolioStocksUrl = "http://localhost:3000/api/v1/portfolio_stocks";
       const portfolioStockData = {
          portfolio_stock: {
@@ -50,23 +48,17 @@ export function fetchPortfolioStocks(portfolio, stock) {
          },
          body: JSON.stringify(portfolioStockData)
       };
-      // a, b, c, e, g, d 
-      console.log(portfolioStockConfigObj.body)
+      
       fetch(portfolioStocksUrl, portfolioStockConfigObj)
          .then(response => response.json())
          .then(data => {
-            console.log('data', data)
-            // debugger
-            console.log('d')
             dispatch(addStock(data.stock));
          })
          .catch(error => {
             // handle error
             alert(error.message)
          })
-      console.log('e')
    }
-   console.log('f')
 }
 
 
