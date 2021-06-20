@@ -7,7 +7,7 @@ function parseData(parse) {
     return function(data) {
         let dataKeys = Object.keys(data).join(",").split(",");
         let dataValues = Object.values(data).join(",").split(",");
-        dataKeys = dataKeys.reduce((acc, curr) => (acc[curr] = dataValues[dataKeys.indexOf(curr)], acc), {});
+        dataKeys = dataKeys.reduce((acc, curr) => ( (acc[curr] = dataValues[dataKeys.indexOf(curr)], acc) ), {});
         data = dataKeys;
         console.log('data ', data)
         data.date = parse(data.date);
