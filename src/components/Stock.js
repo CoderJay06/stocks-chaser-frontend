@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 export const Stock = ({
@@ -16,8 +15,6 @@ export const Stock = ({
 
    const handleViewOnClick = () => {
       // will render selected stock view page
-      console.log('stock ', stock)
-   
       history.push({
          pathname: `/stocks/${tickerSymbol}/chart`,
          state: { ticker: tickerSymbol }
@@ -26,20 +23,14 @@ export const Stock = ({
 
    const handleAddOnClick = () => {
       // handle adding stock to users portfolio
-      // TODO:
-      // id is undefined when searched stock
-      // where going to need to add it to backend stocks db
-      // to create a new id beforehand ?
       const stock = {
          ticker: tickerSymbol,
          name: name,
          price_per_share: Number(pricePerShare)
       };
-      // debugger
-      // TODO: need to save stocks to user portfolio on backend when adding
-      console.log('a')
       fetchPortfolioStocks(portfolio, stock);
-      console.log('g')
+
+      // direct to user's profile after adding stock
       history.push({
          pathname: `/profile/${currentUser.id}`
       });
@@ -69,4 +60,3 @@ export const Stock = ({
 }
 
 export default Stock;
-
