@@ -1,12 +1,6 @@
-import {
-   loginUser,
-   logoutUser
-} from './users';
-import {
-   addExistingPortfolio
-} from './portfolio';
+import { loginUser, logoutUser } from './users';
+import { addExistingPortfolio } from './portfolio';
 
-// fetch login
 export function fetchLogin(user) {
    // handle login action
    return (dispatch) => {
@@ -20,6 +14,7 @@ export function fetchLogin(user) {
          },
          body: JSON.stringify(user)
       }
+
       fetch(loginUrl, userConfigObj)
          .then(response => response.json())
          .then(userData => {
@@ -38,7 +33,6 @@ export function fetchLogin(user) {
    }
 }
 
-// fetch logout
 export function fetchLogout(user) {
    return (dispatch) => {
       // handle logout action
@@ -51,13 +45,11 @@ export function fetchLogout(user) {
          },
          body: JSON.stringify({username: user})
       }
-      console.log('user config obj: ', userConfigObj);
       fetch(url, userConfigObj)
       dispatch(logoutUser(user))
    }
 }
 
-// fetch signup
 export function fetchSignup(userState) {
    return (dispatch) => {
       // handle action for signing up user
