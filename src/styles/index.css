@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-/* component styles to add: 
-  forms: bg-green-600 bg-opacity-75 hover:bg-green-500 hover:bg-opacity-80
-  other: rounded-lg bg-green-800 bg-opacity-80 hover:bg-green-600 hover:bg-opacity-75 text-white-200
- */
 label {
     font-family: "font-serif";
     font-weight: 600;
