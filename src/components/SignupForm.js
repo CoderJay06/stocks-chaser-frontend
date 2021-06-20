@@ -14,7 +14,6 @@ class SignupForm extends Component {
    };
 
    handleOnChange = event => {
-      // update state with user input
       const { user } = {...this.state};
       const currentUserState = user;
       const newUserInput = event.target.value;

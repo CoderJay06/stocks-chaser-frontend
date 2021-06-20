@@ -24,9 +24,6 @@ export const Routes = () => {
          <Route path="/profile/:id">
             <UserProfileContainer />
          </Route>    
-         {/* <Route path="/stocks/:ticker/chart">
-            <ViewStockChart />
-         </Route>   */}
          <Route exact path="/stocks/:ticker/chart">
             <ViewStockChart />
          </Route>  

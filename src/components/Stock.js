@@ -2,7 +2,6 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 
 export const Stock = ({
-   stock,
    currentUser,
    tickerSymbol, 
    name, 
@@ -39,7 +38,6 @@ export const Stock = ({
    return (
       <div className="max-w-6xl w-2/4 mx-auto mt-16 rounded-lg shadow-2xl bg-green-700 bg-opacity-80 
          hover:bg-green-900 hover:bg-opacity-75 text-white-200 px-4 py-6">
-         <h4>Stock</h4>
          <p>Ticker: {tickerSymbol}</p>
          <p>Name: {name}</p>
          <p>Share Price: ${pricePerShare}</p>

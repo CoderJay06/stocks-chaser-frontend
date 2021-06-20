@@ -22,6 +22,8 @@ class StockSearchForm extends Component {
       const searchQuery = 
          `https://www.alphavantage.co/query?function=OVERVIEW&symbol=${this.state.searchInput}` +
             `&apikey=${this._APIKEY}`
+
+      // fetch stock data from aplhavantage api
       fetch(searchQuery, {
          method: "GET",
          headers: {
@@ -59,7 +61,6 @@ class StockSearchForm extends Component {
             {/* render user searched stock */}
             {this.state.searchResults.Symbol ?
                <Stock key={this.state.searchResults.id} 
-                     //  id={this.state.searchResults.id}
                       currentUser={this.props.user}
                       tickerSymbol={this.state.searchResults.Symbol}
                       name={this.state.searchResults.Name}
@@ -80,7 +81,6 @@ const mapStateToProps = state => {
       user: state.login.user
    }
 }
-
 
 const mapDispatchToProps = dispatch => {
    return {
