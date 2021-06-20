@@ -31,7 +31,7 @@ import {
             </div>
          </button>
          <div className={`lg:flex ${  hamburgerClicked ? "block" : "hidden" } `}>
-               <NavLinks styles={mobile} linkStyles={mobileLinks} />
+            <NavLinks styles={mobile} linkStyles={mobileLinks} />
          </div>
          <div>
             <NavLinks styles={desktop} linkStyles={desktopLinks} />
