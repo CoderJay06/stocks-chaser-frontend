@@ -3,7 +3,6 @@ import { Navbar } from './components/Navbar';
 import logo from './styles/Logo';
 
 class App extends Component {
-
    render() {
       return (
          <div className="App" 

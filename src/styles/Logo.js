@@ -1,4 +1,3 @@
-
 export const logo = {
       backgroundImage: "url(/images/logo.jpeg)", 
       height: "100vh",

@@ -7,13 +7,11 @@ class UserProfileContainer extends Component {
    render() {
       return (
          <div>
-         
                {this.props.status === "loggedIn" ? 
                   <UserProfile username={this.props.currentUser.username} /> 
                   :
                   <Redirect to="/" /> // send to homepage if not logged in
                }
-
          </div>
       )
    }

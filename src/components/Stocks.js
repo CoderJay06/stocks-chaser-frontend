@@ -1,11 +1,9 @@
 import React from 'react';
 import { Stock } from '../components/Stock'; 
 
-// stateless functional component for rendering Stocks from db
 export const Stocks = (props) => {
    const { stocks } = props;
-   console.log('props stocks', props)
-   console.log('Stocks: ', stocks)
+  
    const renderStocks = stocks.map(stock => {
       return (
          <Stock key={stock.id} 
@@ -19,8 +17,8 @@ export const Stocks = (props) => {
 
    return (
       <div className="max-w-6xl w-3/4 mx-auto mt-8 rounded-lg bg-green-600 shadow-2xl
-      bg-opacity-75 hover:bg-green-700 hover:bg-opacity-80 text-white-200 px-4 py-6">
-         <h2>Stocks</h2>
+         bg-opacity-75 hover:bg-green-700 hover:bg-opacity-80 text-white-200 px-4 py-6">
+         <h2 className="text-center">Stocks</h2>
          {renderStocks}
       </div>
    )
