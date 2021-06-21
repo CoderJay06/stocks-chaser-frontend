@@ -12,7 +12,6 @@ export const ViewStockChart = () => {
    return (
       <div>
          <h1>{location.state.ticker}</h1>
-         {console.log(location)}
          <Charts stockTickerSymbol={location.state.ticker} />
       </div>
    )

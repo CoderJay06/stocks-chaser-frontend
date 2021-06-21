@@ -27,6 +27,7 @@ export function fetchPortfolios(user) {
          })
          .catch(error => {
             // handle any errors for creating portfolio
+            alert(error.message);
          })
    }
 } 
