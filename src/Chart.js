@@ -31,7 +31,8 @@ class AreaChart extends React.Component {
 			<ChartCanvas ratio={ratio} width={width} height={400}
 				margin={{ left: 50, right: 50, top: 10, bottom: 30 }}
 				seriesName={tickerSymbol}
-				data={data} type={type}
+				data={data} 
+				type={type}
 				xAccessor={d => d.date}
 				displayXAccessor={(d) => d.date}
 				xScale={scaleTime()}
@@ -57,7 +58,7 @@ class AreaChart extends React.Component {
 						orient="right"
 						displayFormat={format(".2f")} />
 
-               		<YAxis axisAt="right" orient="right" percentScale={true} tickFormat={format(".0%")}/>
+               		<YAxis axisAt="right" orient="right" percentScale={true} tickFormat={format("0")}/>
 					<AreaSeries
 						yAccessor={d => d.close}
 						fill="url(#MyGradient)"
@@ -66,7 +67,8 @@ class AreaChart extends React.Component {
 						canvasGradient={canvasGradient}
 					/>
 					<SingleValueTooltip
-						xLabel="Date" /* xLabel is optional, absence will not show the x value */ yLabel="C"
+						xLabel="Date" /* xLabel is optional, absence will not show the x value */ 
+						yLabel="C"
 						yAccessor={d => d.close}
 						xDisplayFormat={timeFormat("%Y-%m-%d")} yDisplayFormat={format(".2f")}
 						/* valueStroke="green" - optional prop */
@@ -75,7 +77,8 @@ class AreaChart extends React.Component {
 					<SingleValueTooltip
 						yLabel="Volume" yAccessor={(d) => d.volume}
 						origin={[-40, 20]}/>
-						<MouseCoordinateY
+					
+					<MouseCoordinateY
 						at="left"
 						orient="left"
 						displayFormat={format(".4s")} />
