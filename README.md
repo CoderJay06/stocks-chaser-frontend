@@ -6,6 +6,7 @@ Stock market tracking application with adjusted daily time series data for stock
 ## Table of contents
 * [Setup](#setup)
 * [Technologies](#technologies)
+* [Apis](#apis)
 * [Status](#status)
 * [Logo](#logo)
 * [License](#license)
@@ -25,6 +26,10 @@ Run server:<br/>
   <li>Redux</li>
   <li>Tailwind CSS</li>
 </ul>
+
+## Apis
+ [React Stock Charts](http://rrag.github.io/react-stockcharts/)<br>
+ [Alpha Vantage](https://www.alphavantage.co/)
 
 ## Status
 Still under development...
