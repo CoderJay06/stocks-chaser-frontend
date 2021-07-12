@@ -56,3 +56,9 @@ p {
     font-variant: historical-ligatures;
     font-style: oblique;
 }
+
+
+/* Stock charts styles */
+tspan {
+    display: none;
+}
