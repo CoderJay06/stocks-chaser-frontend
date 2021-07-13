@@ -1,15 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
-
+import { format } from "d3-format";
+import { timeFormat } from "d3-time-format";
 import { scaleTime } from "d3-scale";
 import { curveMonotoneX } from "d3-shape";
-import { format }from "d3-format";
 
 import { ChartCanvas, Chart } from "react-stockcharts";
 import { AreaSeries } from "react-stockcharts/lib/series";
 import { XAxis, YAxis } from "react-stockcharts/lib/axes";
 import { fitWidth } from "react-stockcharts/lib/helper";
 import { createVerticalLinearGradient, hexToRGBA } from "react-stockcharts/lib/utils";
+import { SingleValueTooltip } from "react-stockcharts/lib/tooltip";
+import {
+	CrossHairCursor,
+	MouseCoordinateX,
+	MouseCoordinateY,
+} from "react-stockcharts/lib/coordinates";
 
 const canvasGradient = createVerticalLinearGradient([
 	{ stop: 0, color: hexToRGBA("#85bb65", 0.2) },
@@ -20,12 +26,15 @@ const canvasGradient = createVerticalLinearGradient([
 class AreaChart extends React.Component {
 	render() {
 		const { data, type, width, ratio, tickerSymbol } = this.props;
+
 		return (
 			<ChartCanvas ratio={ratio} width={width} height={400}
 				margin={{ left: 50, right: 50, top: 10, bottom: 30 }}
 				seriesName={tickerSymbol}
-				data={data} type={type}
+				data={data} 
+				type={type}
 				xAccessor={d => d.date}
+				displayXAccessor={(d) => d.date}
 				xScale={scaleTime()}
 				xExtents={[new Date(data[0].date), new Date(data[99].date)]}
 			 >
@@ -39,7 +48,17 @@ class AreaChart extends React.Component {
 					</defs>
 					<XAxis axisAt="bottom" orient="bottom" ticks={6}/>
 					<YAxis axisAt="left" orient="left" />
-               <YAxis axisAt="right" orient="right" percentScale={true} tickFormat={format(".0%")}/>
+
+					<MouseCoordinateX
+						at="bottom"
+						orient="bottom"
+						displayFormat={timeFormat("%Y-%m-%d")} />
+					<MouseCoordinateY
+						at="right"
+						orient="right"
+						displayFormat={format(".2f")} />
+
+               		<YAxis axisAt="right" orient="right" percentScale={true} tickFormat={format("0")}/>
 					<AreaSeries
 						yAccessor={d => d.close}
 						fill="url(#MyGradient)"
@@ -47,7 +66,24 @@ class AreaChart extends React.Component {
 						interpolation={curveMonotoneX}
 						canvasGradient={canvasGradient}
 					/>
+					<SingleValueTooltip
+						xLabel="Date" /* xLabel is optional, absence will not show the x value */ 
+						yLabel="C"
+						yAccessor={d => d.close}
+						xDisplayFormat={timeFormat("%Y-%m-%d")} yDisplayFormat={format(".2f")}
+						/* valueStroke="green" - optional prop */
+						/* labelStroke="#4682B4" - optional prop */
+						origin={[-40, 0]}/>
+					<SingleValueTooltip
+						yLabel="Volume" yAccessor={(d) => d.volume}
+						origin={[-40, 20]}/>
+					
+					<MouseCoordinateY
+						at="left"
+						orient="left"
+						displayFormat={format(".4s")} />
 				</Chart>
+				<CrossHairCursor />
 			</ChartCanvas>
 		);
 	}
