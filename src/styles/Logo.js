@@ -4,8 +4,8 @@ export const logo = {
       backgroundPosition: "center",
       backgroundRepeat: "repeat-y",
       backgroundSize: "cover",
-      resize: "both",
-      overflow: "scroll"
+      // resize: "both",
+      overflow: "auto"
 };
 
 export default logo;
