@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { fetchLogin } from '../actions/fetchUsers';
 import { Redirect } from 'react-router-dom'; 
 import UserProfileContainer from '../containers/UserProfileContainer';
+import Loader from "react-loader-spinner";
 
 class LoginForm extends Component {
    state = {
@@ -36,6 +37,21 @@ class LoginForm extends Component {
    }
 
    render() {
+      let displayIfErrorLoggingIn = null;
+      if (this.props.status === "loading_user") {
+         return (
+               <Loader
+                  type="Watch"
+                  color="#00BFFF"
+                  height={80}
+                  width={80}
+               />
+         )
+      } else if (this.props.status === "error_loading_user") {
+         // display errors
+         console.log(this.props)
+         displayIfErrorLoggingIn = this.props.loginError
+      }
       return (    
          // when logged in redirect to user profile, otherwise render form  
          this.props.status === "loggedIn" ?
@@ -44,6 +60,7 @@ class LoginForm extends Component {
             </Redirect>
             :
             <div>
+               <h5 className="login-error">{displayIfErrorLoggingIn}</h5>
                <form className="max-w-6xl w-2/4 mx-auto mt-16 rounded-lg shadow-2xl bg-green-600 
                   bg-opacity-75 hover:bg-green-700 hover:bg-opacity-80 px-4 py-6"
                      onSubmit={this.handleOnSubmit}>
@@ -76,6 +93,7 @@ class LoginForm extends Component {
 const mapStateToProps = state => {
    return {
       status: state.login.status,
+      loginError: state.login.error,
       currentUser: state.login.user
    }
 }
