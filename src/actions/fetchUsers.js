@@ -1,10 +1,12 @@
-import { loginUser, logoutUser } from './users';
+import { loginUser, logoutUser, loginError } from './users';
 import { addExistingPortfolio } from './portfolio';
+import { START_LOADING_USER } from '../actions/users'; 
 
 export function fetchLogin(user) {
    // handle login action
    return (dispatch) => {
       // login user on submit
+      dispatch({type: START_LOADING_USER})
       const loginUrl = "http://localhost:3000/sessions";
       const userConfigObj = {
          method: "POST",
@@ -19,17 +21,14 @@ export function fetchLogin(user) {
          .then(response => response.json())
          .then(userData => {
             userData.error ?
-               alert(userData.error)
+               dispatch(loginError(userData.error))
                :
                dispatch(loginUser(userData))
-
-               // Check if user has a portfolio, add to store if so
-               const userHasPortfolio = userData.portfolio.id ? true : false;
+               
+               const userHasPortfolio = userData.portfolio && userData.portfolio.id
                if (userHasPortfolio) dispatch(addExistingPortfolio(userData.portfolio));
          })
-         .catch(loginError => {
-            alert(loginError.message)
-         });
+         .catch(error => alert(error.message));
    }
 }
 

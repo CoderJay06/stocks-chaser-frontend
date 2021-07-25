@@ -22,6 +22,8 @@
          - start with login form. Need to authenticate user on backend,
            dispatch action to login user
 
+      [ ] add loading actions for users and portfolios
+
       [ ] add portfolioReducer for creating users portfolio
          - Portfolio state
             ex 1:
