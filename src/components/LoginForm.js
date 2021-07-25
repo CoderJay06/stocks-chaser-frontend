@@ -37,7 +37,8 @@ class LoginForm extends Component {
    }
 
    render() {
-      let displayIfErrorLoggingIn = null;
+      let errorMessage= null;
+      let displayErrorMessage = false;
       if (this.props.status === "loading_user") {
          return (
                <Loader
@@ -50,7 +51,8 @@ class LoginForm extends Component {
       } else if (this.props.status === "error_loading_user") {
          // display errors
          console.log(this.props)
-         displayIfErrorLoggingIn = this.props.loginError
+         errorMessage = this.props.loginError
+         displayErrorMessage = true;
       }
       return (    
          // when logged in redirect to user profile, otherwise render form  
@@ -60,10 +62,15 @@ class LoginForm extends Component {
             </Redirect>
             :
             <div>
-               <h5 className="login-error">{displayIfErrorLoggingIn}</h5>
                <form className="max-w-6xl w-2/4 mx-auto mt-16 rounded-lg shadow-2xl bg-green-600 
                   bg-opacity-75 hover:bg-green-700 hover:bg-opacity-80 px-4 py-6"
                      onSubmit={this.handleOnSubmit}>
+                  {
+                     displayErrorMessage ?
+                        <div className="error-message" hidden>
+                           <span className="error-text">{errorMessage}</span>
+                        </div> : null
+                  }
                   <label htmlFor="username">Username</label>
                   <input name="username" 
                          type="text" 

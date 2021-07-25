@@ -1,9 +1,6 @@
 import { loginUser, logoutUser, loginError } from './users';
 import { addExistingPortfolio } from './portfolio';
-import { 
-   START_LOADING_USER, 
-   ERROR_LOADING_USER
-} from '../actions/users'; 
+import { START_LOADING_USER } from '../actions/users'; 
 
 export function fetchLogin(user) {
    // handle login action
@@ -32,11 +29,7 @@ export function fetchLogin(user) {
                const userHasPortfolio = userData.portfolio.id ? true : false;
                if (userHasPortfolio) dispatch(addExistingPortfolio(userData.portfolio));
          })
-         .catch(error => {
-            // dispatch({type: ERROR_LOADING_USER, payload: loginError.message})
-            dispatch(loginError(error.message));
-            // alert(loginError.message)
-         });
+         .catch(error => dispatch(loginError(error.message)));
    }
 }
 
