@@ -1,8 +1,14 @@
-import { addPortfolio, addStock } from '../actions/portfolio';
+import { 
+   START_LOADING_PORTFOLIO,
+   portfolioError,
+   addPortfolio, 
+   addStock } from '../actions/portfolio';
 
 // actions to handle portfolio requests to the backend
 export function fetchPortfolios(user) {
    return (dispatch) => {
+      dispatch({type: START_LOADING_PORTFOLIO});
+
       // post to backend, add new portfolio to the db
       const portfoliosUrl = "http://localhost:3000/api/v1/portfolios";
       const newPortfolio = {
@@ -27,13 +33,14 @@ export function fetchPortfolios(user) {
          })
          .catch(error => {
             // handle any errors for creating portfolio
-            alert(error.message);
+            dispatch(portfolioError(error.message));
          })
    }
 } 
 
 export function fetchPortfolioStocks(portfolio, stock) { 
    return (dispatch) => {
+      dispatch({type: START_LOADING_PORTFOLIO});
       const portfolioStocksUrl = "http://localhost:3000/api/v1/portfolio_stocks";
       const portfolioStockData = {
          portfolio_stock: {
@@ -49,7 +56,6 @@ export function fetchPortfolioStocks(portfolio, stock) {
          },
          body: JSON.stringify(portfolioStockData)
       };
-      
       fetch(portfolioStocksUrl, portfolioStockConfigObj)
          .then(response => response.json())
          .then(data => {
@@ -57,12 +63,7 @@ export function fetchPortfolioStocks(portfolio, stock) {
          })
          .catch(error => {
             // handle error
-            alert(error.message)
+            dispatch(portfolioError(error.message));
          })
    }
 }
-
-
-
-
-

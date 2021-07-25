@@ -24,12 +24,11 @@ export function fetchLogin(user) {
                dispatch(loginError(userData.error))
                :
                dispatch(loginUser(userData))
-
-               // Check if user has a portfolio, add to store if so
-               const userHasPortfolio = userData.portfolio.id ? true : false;
+               
+               const userHasPortfolio = userData.portfolio && userData.portfolio.id
                if (userHasPortfolio) dispatch(addExistingPortfolio(userData.portfolio));
          })
-         .catch(error => dispatch(loginError(error.message)));
+         .catch(error => alert(error.message));
    }
 }
 
