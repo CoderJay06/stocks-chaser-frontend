@@ -15,16 +15,6 @@ const initialState = {
 
 export default function portfolioReducer(state = initialState, action) {
    switch (action.type) {
-      case START_LOADING_PORTFOLIO:
-         return {
-            ...state,
-            status: "loading"
-         }
-      case ERROR_LOADING_PORTFOLIO:
-         return {
-            ...state,
-            status: "error"
-         }
       case ADD_PORTFOLIO:
          return {
             id: action.payload.id,
@@ -50,6 +40,16 @@ export default function portfolioReducer(state = initialState, action) {
             ...state,
             stock_quantity: state.stock_quantity + 1,
             stocks: [...state.stocks.concat([action.payload])]
+         }
+      case START_LOADING_PORTFOLIO:
+         return {
+            ...state,
+            status: "loading"
+         }
+      case ERROR_LOADING_PORTFOLIO:
+         return {
+            ...state,
+            status: "error"
          }
       default:
          break;
