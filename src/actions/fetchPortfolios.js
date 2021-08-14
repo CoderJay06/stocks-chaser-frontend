@@ -10,7 +10,7 @@ export function fetchPortfolios(user) {
       dispatch({type: START_LOADING_PORTFOLIO});
 
       // post to backend, add new portfolio to the db
-      const portfoliosUrl = "http://localhost:3000/api/v1/portfolios";
+      const portfoliosUrl = "https://stocks-chaser.herokuapp.com/api/v1/portfolios";
       const newPortfolio = {
          portfolio: {
             user_id: user.id,
@@ -41,7 +41,7 @@ export function fetchPortfolios(user) {
 export function fetchPortfolioStocks(portfolio, stock) { 
    return (dispatch) => {
       dispatch({type: START_LOADING_PORTFOLIO});
-      const portfolioStocksUrl = "http://localhost:3000/api/v1/portfolio_stocks";
+      const portfolioStocksUrl = "https://stocks-chaser.herokuapp.com/api/v1/portfolio_stocks";
       const portfolioStockData = {
          portfolio_stock: {
             portfolio: portfolio,

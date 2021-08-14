@@ -7,7 +7,7 @@ export function fetchLogin(user) {
    return (dispatch) => {
       // login user on submit
       dispatch({type: START_LOADING_USER})
-      const loginUrl = "http://localhost:3000/sessions";
+      const loginUrl = "https://stocks-chaser.herokuapp.com/sessions";
       const userConfigObj = {
          method: "POST",
          headers: {
@@ -35,7 +35,7 @@ export function fetchLogin(user) {
 export function fetchLogout(user) {
    return (dispatch) => {
       // handle logout action
-      const url = "http://localhost:3000/sessions";
+      const url = "https://stocks-chaser.herokuapp.com/sessions";
       const userConfigObj = {
          method: "DELETE",
          headers: {
@@ -52,7 +52,7 @@ export function fetchLogout(user) {
 export function fetchSignup(userState) {
    return (dispatch) => {
       // handle action for signing up user
-      const usersUrl = "http://localhost:3000/api/v1/users";
+      const usersUrl = "https://stocks-chaser.herokuapp.com/api/v1/users";
       const configUsersObj = {
          method: "POST",
          headers: {

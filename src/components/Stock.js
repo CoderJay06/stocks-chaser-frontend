@@ -35,6 +35,8 @@ export const Stock = ({
       });
    }
 
+   const isLoggedIn = currentUser && currentUser.id;
+
    return (
       <div className="max-w-6xl w-2/4 mx-auto mt-16 rounded-lg shadow-2xl bg-green-700 bg-opacity-80 
          hover:bg-green-900 hover:bg-opacity-75 text-white-200 px-4 py-6">
@@ -45,8 +47,9 @@ export const Stock = ({
                  className="w-full p-4 bg-blue-500 mt-4 hover:bg-blue-700 
                   transition-all duration-200">View</button>
          {
-         // we only want to show this button for stocks that can be added to portfolio 
-         isSearchedStock ?
+         // we only want to show this button when user is logged in and 
+         // for stocks that can be added to portfolio 
+         isLoggedIn && isSearchedStock ?
             <button onClick={handleAddOnClick}
                     className="w-full p-4 bg-blue-500 mt-4 hover:bg-blue-700 
                      transition-all duration-200">Add</button>
