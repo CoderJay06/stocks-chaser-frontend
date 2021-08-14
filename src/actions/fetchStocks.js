@@ -6,7 +6,7 @@ import {
 } from '../actions/stocks'; 
 
 export function fetchStocks() {
-   const url = "http://localhost:3000/api/v1/stocks"
+   const url = "https://stocks-chaser.herokuapp.com/api/v1/stocks"
    const configStocksObj = {
          method: "GET",
          headers: {
