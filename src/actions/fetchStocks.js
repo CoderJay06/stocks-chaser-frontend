@@ -32,3 +32,21 @@ export function fetchStocks() {
    };
 }
 
+export function fetchStocksApi(searchInput) {
+   const _APIKEY = process.env.REACT_APP_STOCKS_API_KEY;
+   const searchQuery = 
+         `https://www.alphavantage.co/query?function=OVERVIEW&symbol=${searchInput}` +
+            `&apikey=${_APIKEY}`
+   const configStockObj = {
+      method: "GET",
+      headers: {
+         "Content-Type": "application/json",
+         "Accept": "application/json"
+      }
+   };
+
+   return (
+      fetch(searchQuery, configStockObj)
+         .then(response => response.json())
+   )
+}

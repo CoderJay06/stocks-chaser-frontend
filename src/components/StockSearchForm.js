@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { Stock } from '../components/Stock';
 import { connect } from 'react-redux';
 import { fetchPortfolioStocks } from '../actions/fetchPortfolios';
+import { fetchStocksApi } from '../actions/fetchStocks';
 
 function StockSearchForm(props) {
    const [ search, setSearchState ] = useState({
       input: '',
       results: []
    })
-   const _APIKEY = process.env.REACT_APP_STOCKS_API_KEY;
 
    const handleOnChange = event => {
       setSearchState({
@@ -20,30 +20,19 @@ function StockSearchForm(props) {
    const handleOnSubmit = event => {
       event.preventDefault();
 
-      const searchQuery = 
-         `https://www.alphavantage.co/query?function=OVERVIEW&symbol=${search.input}` +
-            `&apikey=${_APIKEY}`
-
-      // fetch stock data from aplhavantage api
-      fetch(searchQuery, {
-         method: "GET",
-         headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-         }
-      }).then(response => response.json())
-        .then(stockData => {
+      fetchStocksApi(search.input)
+         .then(stockData => {
             setSearchState({
-               ...search,
+               input: '',
                results: stockData
             })
-        });
+         });
 
-        // reset state
-        setSearchState({
-            input: '',
-            results: []
-        });
+      // reset state
+      setSearchState({
+         input: '',
+         results: ''
+      })
    }
 
    return (
@@ -67,13 +56,13 @@ function StockSearchForm(props) {
          {/* render user searched stock */}
          {search.results.Symbol ?
             <Stock key={search.results.id} 
-                     currentUser={props.user}
-                     tickerSymbol={search.results.Symbol}
-                     name={search.results.Name}
-                     pricePerShare={search.results['50DayMovingAverage']}
-                     fetchPortfolioStocks={props.dispatchFetchPortfolioStocks}
-                     portfolio={props.portfolio}
-                     isSearchedStock={true} />
+                   currentUser={props.user}
+                   tickerSymbol={search.results.Symbol}
+                   name={search.results.Name}
+                   pricePerShare={search.results['50DayMovingAverage']}
+                   fetchPortfolioStocks={props.dispatchFetchPortfolioStocks}
+                   portfolio={props.portfolio}
+                   isSearchedStock={true} />
             : null 
          }
       </div>
