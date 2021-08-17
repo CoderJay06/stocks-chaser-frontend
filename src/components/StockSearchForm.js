@@ -1,27 +1,28 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { Stock } from '../components/Stock';
 import { connect } from 'react-redux';
 import { fetchPortfolioStocks } from '../actions/fetchPortfolios';
 
-class StockSearchForm extends Component {
-   _APIKEY = process.env.REACT_APP_STOCKS_API_KEY;
-   state = {
-      searchInput: '',
-      searchResults: []
-   }
+function StockSearchForm(props) {
+   const [ search, setSearchState ] = useState({
+      input: '',
+      results: []
+   })
+   const _APIKEY = process.env.REACT_APP_STOCKS_API_KEY;
 
-   handleOnChange = event => {
-      this.setState({
-         searchInput: event.target.value.toUpperCase()
+   const handleOnChange = event => {
+      setSearchState({
+         ...search,
+         input: event.target.value.toUpperCase()
       });
    }
 
-   handleOnSubmit = event => {
+   const handleOnSubmit = event => {
       event.preventDefault();
 
       const searchQuery = 
-         `https://www.alphavantage.co/query?function=OVERVIEW&symbol=${this.state.searchInput}` +
-            `&apikey=${this._APIKEY}`
+         `https://www.alphavantage.co/query?function=OVERVIEW&symbol=${search.input}` +
+            `&apikey=${_APIKEY}`
 
       // fetch stock data from aplhavantage api
       fetch(searchQuery, {
@@ -32,47 +33,51 @@ class StockSearchForm extends Component {
          }
       }).then(response => response.json())
         .then(stockData => {
-            this.setState({
-               searchInput: '',
-               searchResults: stockData
+            setSearchState({
+               ...search,
+               results: stockData
             })
+        });
+
+        // reset state
+        setSearchState({
+            input: '',
+            results: []
         });
    }
 
-   render() {
-      return (
-         <div>
-            <form onSubmit={this.handleOnSubmit}
-                  className="max-w-6xl w-2/4 mx-auto mt-16 rounded-lg shadow-2xl bg-green-600 
-                     bg-opacity-75 hover:bg-green-700 hover:bg-opacity-80 px-4 py-6">
-               <label>Search a Stock</label>
-               <input type="text" 
-                      className="w-full border hover:bg-blue-400 p-4 my-4"
-                      onChange={this.handleOnChange} 
-                      value={this.state.searchInput}
-                      placeholder="Enter ticker symbol" />
-               <br />
-               <input type="submit" 
-                      className="w-full p-4 bg-blue-500 mt-4 hover:bg-blue-700 
-                        transition-all duration-200"
-                      value="Search" />
-            </form>
+   return (
+      <div>
+         <form onSubmit={handleOnSubmit}
+               className="max-w-6xl w-2/4 mx-auto mt-16 rounded-lg shadow-2xl bg-green-600 
+                  bg-opacity-75 hover:bg-green-700 hover:bg-opacity-80 px-4 py-6">
+            <label>Search a Stock</label>
+            <input type="text" 
+                     className="w-full border hover:bg-blue-400 p-4 my-4"
+                     onChange={handleOnChange} 
+                     value={search.input}
+                     placeholder="Enter ticker symbol" />
+            <br />
+            <input type="submit" 
+                     className="w-full p-4 bg-blue-500 mt-4 hover:bg-blue-700 
+                     transition-all duration-200"
+                     value="Search" />
+         </form>
 
-            {/* render user searched stock */}
-            {this.state.searchResults.Symbol ?
-               <Stock key={this.state.searchResults.id} 
-                      currentUser={this.props.user}
-                      tickerSymbol={this.state.searchResults.Symbol}
-                      name={this.state.searchResults.Name}
-                      pricePerShare={this.state.searchResults['50DayMovingAverage']}
-                      fetchPortfolioStocks={this.props.dispatchFetchPortfolioStocks}
-                      portfolio={this.props.portfolio}
-                      isSearchedStock={true} />
-               : null 
-            }
-         </div>
-      )
-   }
+         {/* render user searched stock */}
+         {search.results.Symbol ?
+            <Stock key={search.results.id} 
+                     currentUser={props.user}
+                     tickerSymbol={search.results.Symbol}
+                     name={search.results.Name}
+                     pricePerShare={search.results['50DayMovingAverage']}
+                     fetchPortfolioStocks={props.dispatchFetchPortfolioStocks}
+                     portfolio={props.portfolio}
+                     isSearchedStock={true} />
+            : null 
+         }
+      </div>
+   )
 }
 
 const mapStateToProps = state => {
