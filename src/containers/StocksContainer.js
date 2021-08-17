@@ -1,35 +1,36 @@
-import React, { Component } from 'react';
+import React, { useLayoutEffect } from 'react';
 import { Stocks } from '../components/Stocks';
 import { connect } from 'react-redux';
 import { fetchStocks } from '../actions/fetchStocks';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 
-class StocksContainer extends Component {
-   componentDidMount() {
+function StocksContainer(props) {
+   const { dispatchFetchStocks } = props;
+
+   useLayoutEffect(() => {
+      
       // get all stocks from the db
-      this.props.dispatchFetchStocks()
-   }
+      dispatchFetchStocks();
+   }, [dispatchFetchStocks]);
 
-   render() {
-         if (this.props.loadingState === "notLoading") return null;
+   if (props.loadingState === "notLoading") return null;
 
-         return (
-            <div>
-               <br />
-               {/* render stocks once loading is successfull */}
-               {this.props.loadingState === "loading" ?
-                  <Loader
-                     type="Watch"
-                     color="#00BFFF"
-                     height={80}
-                     width={80}
-                  />
-                  :
-                  <Stocks stocks={this.props.stocks} />}
-            </div>
-         )
-   }
+   return (
+      <div>
+         <br />
+         {/* render stocks once loading is successfull */}
+         {props.loadingState === "loading" ?
+            <Loader
+               type="Watch"
+               color="#00BFFF"
+               height={80}
+               width={80}
+            />
+            :
+            <Stocks stocks={props.stocks} />}
+      </div>
+   )
 };
 
 const mapStateToProps = state => {
