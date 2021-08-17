@@ -7,7 +7,7 @@ import {
  } from "react-router-dom";
 
  export const Navbar = () => {
-   const [hamburgerClicked, setHamburgerClicked] = useState(false)
+   const [ hamburgerClicked, setHamburgerClicked ] = useState(false)
 
    const handleClick = () => {
       setHamburgerClicked(prevState => !prevState)
@@ -19,7 +19,7 @@ import {
       desktopLinks: "inline-block hover:bg-green-300 hover:bg-opacity-25 rounded-lg px-4 py-2",
       mobileLinks: "inline-block hover:bg-green-300 hover:bg-opacity-25 rounded-lg px-4 py-8",
    }
-   const {desktop, mobile, desktopLinks, mobileLinks} = styles
+   const { desktop, mobile, desktopLinks, mobileLinks } = styles
 
    return (
       <Router>

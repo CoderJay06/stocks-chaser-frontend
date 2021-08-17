@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import { logoutUser } from '../actions/users';
 import { removePortfolio } from '../actions/portfolio';
 
-const UserLinks = ({status, user, logoutUser, removePortfolio, linkStyles}) => {
+const UserLinks = ({ status, user, logoutUser, removePortfolio, linkStyles }) => {
    return (
       <>
          {status === "loggedIn" ?
