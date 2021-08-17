@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import UserLinks from './UserLinks';
 
-const NavLinks = ({styles, linkStyles}) => {
+const NavLinks = ({ styles, linkStyles }) => {
    return (
       <nav className={styles}>
           

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Logout = ({user, dispatchFetchLogout, dispatchRemovePortfolio}) => {
+const Logout = ({ user, dispatchFetchLogout, dispatchRemovePortfolio }) => {
    // send request to backend to delete session
    const handleOnClick = (user) => {
       dispatchFetchLogout(user)
