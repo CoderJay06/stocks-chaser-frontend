@@ -21,7 +21,7 @@ function parseData(parse) {
 const parseDate = timeParse("%Y-%m-%d");
 
 export function getData(tickerSymbol) {
-    const url = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED` +
+    const url = `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY` +
       `&symbol=${tickerSymbol}&outputsize=compact&apikey=${process.env.REACT_APP_STOCKS_API_KEY}`
     const promiseData = fetch(url)
         .then(response => response.json())
