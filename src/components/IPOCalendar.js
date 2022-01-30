@@ -53,7 +53,8 @@ function IpoCalendar() {
   function renderIpos() {
     return allIpos.map((ipoData) => {
       return (
-        <tr key={ipoData.symbol}>
+        <tr key={ipoData.symbol} className="w-full mx-auto mt-16 rounded-lg shadow-2xl bg-green-700 bg-opacity-80 
+        hover:bg-green-900 hover:bg-opacity-75 text-white-200 ">
           <td> {ipoData.symbol} </td>
           <td> {ipoData.name} </td>
           <td> {parseDate(ipoData.ipoDate)} </td>
@@ -68,14 +69,14 @@ function IpoCalendar() {
 
   return (
     <div
-      className="max-w-5xl mx-auto mt-8 rounded-lg bg-green-600 shadow-2xl
-    bg-opacity-75 hover:bg-green-700 hover:bg-opacity-80 text-white px-0 py-6"
+      className="overflow-x-auto mx-20 mt-8 rounded-lg bg-green-600 shadow-2xl
+    bg-opacity-75 hover:bg-green-700 hover:bg-opacity-80 text-white px-4 py-6"
     >
       <table
-        className="max-w-6xl w-3/4 mx-auto mt-8 rounded-lg bg-green-600 shadow-2xl
-    bg-opacity-75 hover:bg-green-900 hover:bg-opacity-80 text-white px-2 py-6"
+        className="w-full x-auto mt-8 text-center rounded-lg bg-green-600 shadow-2xl
+    bg-opacity-75 hover:bg-green-900 hover:bg-opacity-80 text-white px-2 py-4"
       >
-        <caption className="font-extrabold text-4xl mb-5">IPO Calendar</caption>
+        <caption className="font-extrabold text-center text-4xl">IPO Calendar</caption>
         <thead>
           <tr>
             <th>Symbol</th>

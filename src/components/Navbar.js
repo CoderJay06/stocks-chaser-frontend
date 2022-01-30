@@ -23,7 +23,7 @@ import {
 
    return (
       <Router>
-         <button className="ham-wrapper ham-stack flex flex-col sm:flex-row w-full justify-between items-center px-4 sm:px-6 py-6 sm:hidden" onClick={handleClick}>
+         <button className="ham-wrapper ham-stack flex flex-col sm:flex-row w-full bg-blue-500 justify-between items-center px-4 sm:px-6 py-6 sm:hidden" onClick={handleClick}>
             <div className="ham-inner">
                <span className="ham-bar" />
                <span className="ham-bar" />

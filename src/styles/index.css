@@ -92,17 +92,72 @@ tspan {
 }
 
 /* IPO Calendar styles */
-
-table,
-th,
-td {
-  border: 0.1px solid rgb(219, 214, 214);
+table, tr, td {
+  border: 1px solid white;
 }
 
-th {
-  font-size: 1.4rem;
+@media only screen and (max-width: 760px) {
+
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  table > caption {
+    /* display: none; */
+  }
+
+  thead tr { 
+		position: absolute;
+    top: -9999px;
+		left: -9999px;
+	}
+	
+  tr { border: 1px solid #ccc; }
+
+  td { 
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+    padding-left: 50%;
+	}
+
+  td:before { 
+		position: absolute;
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+
+  /* Add labels */
+  td:nth-of-type(1):before { content: "Symbol"; }
+  td:nth-of-type(2):before { content: "Name"; }
+  td:nth-of-type(3):before { content: "Date"; }
+  td:nth-of-type(4):before { content: "Price (Low)"; }
+  td:nth-of-type(5):before { content: "Price (High)"; }
+  td:nth-of-type(6):before { content: "Currency"; }
+  td:nth-of-type(7):before { content: "Exchange"; }
+
+  tr:last-child {
+    display: none;
+  }
 }
 
-td {
-  font-size: 1.2rem;
+@media only screen and (max-width: 460px) {
+  th {
+    display: none;
+  }
+
+  td {
+    padding-left: 0;
+  }
+
+  td:nth-of-type(1):before { content: ""; }
+  td:nth-of-type(2):before { content: ""; }
+  td:nth-of-type(3):before { content: ""; }
+  td:nth-of-type(4):before { content: ""; }
+  td:nth-of-type(5):before { content: ""; }
+  td:nth-of-type(6):before { content: ""; }
+  td:nth-of-type(7):before { content: ""; }
 }
